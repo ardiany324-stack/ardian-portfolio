@@ -37,11 +37,34 @@
     }
 
     body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--sans);
-      line-height: 1.7;
-      overflow-x: hidden;
+      
+body {
+  background-color: #080a09;
+  background-image:
+    linear-gradient(
+      rgba(8, 10, 20, 0.45),
+      rgba(8, 10, 20, 0.65)
+    ),
+    url("./20260925_210142_0000.jpg");
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  color: var(--text);
+  font-family: var(--sans);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+@media (max-width: 700px) {
+  body {
+    background-attachment: scroll;
+    background-position: center top;
+  }
+}
+
     }
 
     a {
