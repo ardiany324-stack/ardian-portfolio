@@ -11,22 +11,28 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f7f8f5;
-      --ink: #11130f;
-      --muted: #73786f;
-      --line: #dfe2da;
-      --accent: #a8ff60;
-      --dark: #20231f;
-      --mono: "DM Mono", monospace;
-      --sans: "Manrope", sans-serif;
+  --bg: #050816;
+  --ink: #f5f7ff;
+  --muted: #a0abc5;
+  --line: #252e49;
+  --accent: #8b5cf6;
+  --dark: #0b1024;
+  --mono: "DM Mono", monospace;
+  --sans: "Manrope", sans-serif;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; scroll-padding-top: 90px; }
-    body { background: var(--bg); color: var(--ink); font-family: var(--sans); line-height: 1.65; overflow-x: hidden; }
-    a { color: inherit; text-decoration: none; }
-    button { font: inherit; }
-    .container { width: min(1120px, 88%); margin-inline: auto; }
-    .nav { position: sticky; top: 0; z-index: 20; background: rgba(247,248,245,.88); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(17,19,15,.09); }
+  body {
+  background:
+    radial-gradient(ellipse at 15% 20%, rgba(0,180,255,.20), transparent 40%),
+    radial-gradient(ellipse at 85% 40%, rgba(139,92,246,.22), transparent 45%),
+    linear-gradient(135deg, #050816, #0b1024, #050816);
+  background-attachment: fixed;
+  color: var(--ink);
+  font-family: var(--sans);
+  line-height: 1.65;
+  overflow-x: hidden;
+} rgba(247,248,245,.88); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(17,19,15,.09); }
     .nav-inner { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
     .logo { font: 500 1.18rem var(--mono); letter-spacing: -.07em; }
     .logo span { color: #71c936; }
