@@ -4,92 +4,618 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ardian.dev | Explore Space</title>
+<title>JAPAN | Negeri Matahari Terbit</title>
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:Arial,sans-serif;background:#020817;color:#fff;overflow-x:hidden}
-header{height:72px;padding:0 5%;display:flex;align-items:center;justify-content:space-between;gap:18px;position:relative;z-index:5;background:#030b1deF;border-bottom:1px solid #164e83}
-.logo{font-size:23px;font-weight:bold;letter-spacing:1px;white-space:nowrap}.logo span{color:#38bdf8}
-nav{display:flex;gap:25px}nav a{color:#dbeafe;text-decoration:none;font-size:14px}nav a:hover{color:#38bdf8}
-.navbtn,.btn{display:inline-block;text-decoration:none;color:#fff;border:1px solid #38a8ff;border-radius:30px;padding:12px 22px}
-.navbtn{white-space:nowrap}
-.hero{min-height:760px;height:calc(100vh - 72px);max-height:1000px;position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;background:radial-gradient(ellipse at 70% 70%,#07529a 0%,transparent 38%),radial-gradient(ellipse at 50% 10%,#122d6b 0%,transparent 40%),linear-gradient(#03091c,#061936 75%,#020817)}
-#stars{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
-.nebula{position:absolute;width:420px;height:300px;top:5%;left:40%;background:#2563eb;filter:blur(110px);opacity:.25;z-index:-1}
-.planet{position:absolute;border-radius:50%;pointer-events:none}
-.earth{width:min(62vw,650px);aspect-ratio:1;right:-12%;bottom:-38%;background:radial-gradient(ellipse at 30% 30%,#78d8ff,#1769bb 25%,#09254f 57%,#010713 74%);border:2px solid #43baff;box-shadow:0 0 35px #078bff,inset -35px -20px 70px #000}
-.small{width:150px;height:150px;top:13%;left:-55px;background:radial-gradient(circle at 30% 25%,#547fa9,#102342 60%,#020817);box-shadow:0 0 35px #438fff33}
-.saturn{width:90px;height:90px;top:17%;right:13%;background:radial-gradient(circle at 30% 25%,#c4e7ff,#244c83 55%,#050c20)}
-.saturn:after{content:"";position:absolute;width:160%;height:40%;top:35%;left:-30%;border:7px solid #78baff;border-radius:50%;transform:rotate(-20deg)}
-.orbit{position:absolute;width:800px;height:330px;border:1px solid #168bff30;border-radius:50%;transform:rotate(-20deg);pointer-events:none}.orbit.two{width:1000px;height:440px}
-.content{position:relative;z-index:2;width:92%;max-width:950px;padding:30px 0}
-.eyebrow{color:#bfdbfe;letter-spacing:5px;font-size:13px;margin-bottom:22px}
-h1{font-size:clamp(32px,5.5vw,68px);font-style:italic;font-weight:900;line-height:1.15;text-shadow:0 0 25px #078bff55}
-h1 span{color:#168bff}
-.subtitle{margin:24px auto 30px;max-width:680px;color:#c5d9f6;font-size:17px;line-height:1.8}
-.actions{display:flex;justify-content:center;gap:15px;flex-wrap:wrap}
-.btn.primary{background:linear-gradient(120deg,#087cff,#0756c9);box-shadow:0 0 25px #078bff55}.btn:hover,.navbtn:hover{box-shadow:0 0 25px #078bff88;transform:translateY(-2px)}
-.cards{position:absolute;bottom:22px;left:5%;display:flex;gap:12px;z-index:3}
-.card{width:180px;padding:17px;border:1px solid #28639a;border-radius:14px;background:#05142eE8;backdrop-filter:blur(12px);text-align:left}
-.card .icon{font-size:25px;color:#38bdf8;margin-bottom:9px}.card h3{font-size:15px;margin-bottom:7px}.card p{font-size:12px;line-height:1.6;color:#aac6e9}
-section.planets{padding:85px 5%;text-align:center;background:radial-gradient(ellipse at center top,#0b2b55,#020817 70%)}
-.section-title{font-size:36px;margin-bottom:15px}.section-title span{color:#38bdf8}.section-desc{color:#a9c3e4;line-height:1.8;margin-bottom:40px}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:1100px;margin:auto}
-.planet-card{padding:25px 15px;border:1px solid #174a7a;background:#07172dcc;border-radius:16px;transition:.25s}
-.planet-card:hover{transform:translateY(-6px);border-color:#38bdf8;box-shadow:0 0 25px #078bff22}
-.planet-icon{font-size:48px;margin-bottom:14px}.planet-card h3{margin-bottom:10px;color:#bfdbfe}.planet-card p{font-size:13px;line-height:1.7;color:#91abc9}
-footer{text-align:center;padding:25px;background:#020611;border-top:1px solid #16395f;color:#7896ba;font-size:13px}
-@media(max-width:850px){header{padding:0 4%}nav{gap:13px}nav a{font-size:12px}.navbtn{display:none}.earth{width:480px;right:-35%;bottom:-15%;opacity:.7}.cards{left:3%;gap:7px}.card{width:145px;padding:12px}.grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:550px){header{height:auto;min-height:70px;flex-wrap:wrap;padding:15px 5%;gap:14px}.logo{font-size:20px}nav{width:100%;justify-content:space-between;gap:8px}.hero{height:auto;min-height:790px;padding:55px 0 235px}.content{width:92%}.eyebrow{font-size:10px;letter-spacing:3px}h1{font-size:clamp(30px,8vw,42px)}.subtitle{font-size:14px}.btn{padding:13px 18px;font-size:13px}.earth{width:370px;right:-35%;bottom:-4%;opacity:.55}.small{width:100px;height:100px}.saturn{width:65px;height:65px;right:7%}.cards{bottom:17px;left:4%;right:4%;display:grid;grid-template-columns:repeat(3,1fr)}.card{width:auto;padding:10px}.card .icon{font-size:20px}.card h3{font-size:12px}.card p{font-size:10px}.section-title{font-size:28px}.grid{gap:10px}.planet-card{padding:20px 10px}.planet-icon{font-size:38px}}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #202b3c;
+  background: #f8fafc;
+}
+
+header {
+  height: 75px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 7%;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 12px #0000000d;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: #e62945;
+  color: white;
+  display: grid;
+  place-items: center;
+  font-size: 25px;
+}
+
+.logo h2 {
+  font-size: 24px;
+  letter-spacing: 2px;
+}
+
+.logo small {
+  font-size: 11px;
+  color: #667085;
+}
+
+nav {
+  display: flex;
+  gap: 25px;
+}
+
+nav a {
+  color: #273449;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+nav a:hover {
+  color: #e62945;
+}
+
+.hero {
+  min-height: 410px;
+  display: flex;
+  align-items: center;
+  padding: 60px 8%;
+  color: white;
+  background:
+    linear-gradient(90deg, #102c50df, #102c5040),
+    url("https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=2000&q=85")
+    center 48% / cover;
+}
+
+.hero-content {
+  max-width: 600px;
+}
+
+.hero small {
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.hero h1 {
+  font-size: clamp(38px, 6vw, 65px);
+  margin: 15px 0;
+}
+
+.hero p {
+  line-height: 1.8;
+  max-width: 550px;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 14px 25px;
+  background: #e62945;
+  color: white;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: .3s;
+}
+
+.btn:hover {
+  background: #bd1731;
+  transform: translateY(-3px);
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  padding: 35px 8%;
+  background: white;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.feature-icon {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #e62945;
+  color: white;
+  display: grid;
+  place-items: center;
+  font-size: 23px;
+}
+
+.feature p {
+  font-size: 12px;
+  color: #748094;
+  margin-top: 7px;
+}
+
+section {
+  padding: 55px 8%;
+}
+
+.section-heading {
+  margin-bottom: 25px;
+}
+
+.section-heading h2 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.section-heading p {
+  color: #758094;
+}
+
+.destinations {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.destination {
+  height: 245px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #263746;
+  box-shadow: 0 5px 15px #00000012;
+}
+
+.destination img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .5s;
+}
+
+.destination:hover img {
+  transform: scale(1.08);
+}
+
+.destination-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px 15px;
+  color: white;
+  background: linear-gradient(transparent, #000d);
+}
+
+.destination-info h3 {
+  font-size: 21px;
+  margin-bottom: 7px;
+}
+
+.destination-info p {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 35px;
+  align-items: center;
+  background: white;
+}
+
+.about img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.about p {
+  color: #697586;
+  line-height: 1.8;
+  margin-top: 12px;
+}
+
+.facts {
+  background: #fff0f2;
+  padding: 25px;
+  border-radius: 14px;
+}
+
+.facts h3 {
+  margin-bottom: 15px;
+}
+
+.facts li {
+  margin: 12px 0 12px 20px;
+  color: #596579;
+}
+
+.tips {
+  background: #f1f6fb;
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.tip {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+}
+
+.tip span {
+  font-size: 30px;
+}
+
+.tip h3 {
+  margin: 12px 0;
+}
+
+.tip p {
+  color: #758094;
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.contact {
+  text-align: center;
+  background: white;
+}
+
+footer {
+  padding: 30px 8%;
+  background: #172337;
+  color: white;
+  text-align: center;
+}
+
+footer p {
+  color: #bdc6d3;
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+@media (max-width: 900px) {
+  header {
+    padding: 15px 5%;
+    height: auto;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  nav {
+    width: 100%;
+    gap: 18px;
+    overflow-x: auto;
+    padding-bottom: 5px;
+  }
+
+  nav a {
+    white-space: nowrap;
+  }
+
+  .features {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 30px 5%;
+  }
+
+  .destinations {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  section {
+    padding: 40px 5%;
+  }
+}
+
+@media (max-width: 550px) {
+  .hero {
+    min-height: 430px;
+    padding: 40px 6%;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  .features {
+    gap: 25px 12px;
+  }
+
+  .feature {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .destinations,
+  .about,
+  .tips-grid,
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .destination {
+    height: 250px;
+  }
+
+  .about img {
+    height: 250px;
+  }
+
+  .gallery img {
+    height: 250px;
+  }
+}
 </style>
 </head>
+
 <body>
+
 <header>
-  <div class="logo">🪐 ARDIAN<span>.DEV</span></div>
-  <nav><a href="#home">Home</a><a href="#tentang">Tentang</a><a href="#planet">Planet</a><a href="#kontak">Kontak</a></nav>
-  <a class="navbtn" href="#planet">✦ Jelajahi →</a>
+  <div class="logo">
+    <div class="logo-icon">富</div>
+    <div>
+      <h2>JAPAN</h2>
+      <small>Discover the Land of the Rising Sun</small>
+    </div>
+  </div>
+
+  <nav>
+    <a href="#home">Beranda</a>
+    <a href="#about">Tentang Jepang</a>
+    <a href="#destinasi">Destinasi</a>
+    <a href="#budaya">Budaya</a>
+    <a href="#tips">Tips Perjalanan</a>
+    <a href="#galeri">Galeri</a>
+    <a href="#kontak">Kontak</a>
+  </nav>
 </header>
-<main>
+
+<!-- HERO -->
 <section class="hero" id="home">
-  <canvas id="stars"></canvas><div class="nebula"></div>
-  <div class="planet small"></div><div class="planet saturn"></div><div class="planet earth"></div>
-  <div class="orbit"></div><div class="orbit two"></div>
-  <div class="content" id="tentang">
-    <div class="eyebrow">SELAMAT DATANG DI WEBSITE</div>
-    <h1>ARDIAN <span>YUSUF</span> FIRDAUS</h1>
-    <p class="subtitle">Jelajahi dunia, temukan hal baru, dan terus berkembang.<br>Karena perjalanan terbaik selalu dimulai dari langkah kecil.</p>
-    <div class="actions"><a href="#planet" class="btn primary">🚀 Mulai Jelajah&nbsp; ›</a><a href="#kontak" class="btn">♙ Tentang Saya</a></div>
-  </div>
-  <div class="cards">
-    <div class="card"><div class="icon">🪐</div><h3>Mimpi Besar</h3><p>Selalu ada ruang untuk bermimpi lebih tinggi.</p></div>
-    <div class="card"><div class="icon">⌘</div><h3>Teknologi</h3><p>Mengubah ide menjadi kenyataan.</p></div>
-    <div class="card"><div class="icon">☆</div><h3>Masa Depan</h3><p>Terus belajar dan berkembang.</p></div>
+  <div class="hero-content">
+    <small>SELAMAT DATANG DI JEPANG</small>
+    <h1>Negeri Matahari Terbit</h1>
+    <p>
+      Jepang adalah perpaduan sempurna antara tradisi
+      dan modernitas. Temukan keindahan alam, budaya unik,
+      kuliner lezat, dan pengalaman tak terlupakan.
+    </p>
+    <a href="#destinasi" class="btn">Jelajahi Jepang →</a>
   </div>
 </section>
-<section class="planets" id="planet">
-  <h2 class="section-title">Jelajahi <span>Tata Surya</span></h2>
-  <p class="section-desc">Kenali delapan planet yang mengelilingi Matahari.</p>
-  <div class="grid">
-    <article class="planet-card"><div class="planet-icon">⚫</div><h3>Merkurius</h3><p>Planet terkecil dan terdekat dari Matahari.</p></article>
-    <article class="planet-card"><div class="planet-icon">🟡</div><h3>Venus</h3><p>Planet dengan atmosfer yang sangat panas.</p></article>
-    <article class="planet-card"><div class="planet-icon">🌍</div><h3>Bumi</h3><p>Rumah kita, tempat kehidupan berkembang.</p></article>
-    <article class="planet-card"><div class="planet-icon">🔴</div><h3>Mars</h3><p>Dikenal sebagai Planet Merah.</p></article>
-    <article class="planet-card"><div class="planet-icon">🟠</div><h3>Jupiter</h3><p>Planet terbesar di tata surya.</p></article>
-    <article class="planet-card"><div class="planet-icon">🪐</div><h3>Saturnus</h3><p>Terkenal dengan sistem cincinnya.</p></article>
-    <article class="planet-card"><div class="planet-icon">🔵</div><h3>Uranus</h3><p>Planet raksasa es yang berotasi miring.</p></article>
-    <article class="planet-card"><div class="planet-icon">🌐</div><h3>Neptunus</h3><p>Planet terjauh dari Matahari.</p></article>
+
+<!-- KEUNGGULAN -->
+<div class="features">
+  <div class="feature">
+    <div class="feature-icon">富</div>
+    <div><b>Alam Memukau</b>
+      <p>Gunung, danau, dan sakura</p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="feature-icon">🏯</div>
+    <div><b>Budaya yang Kaya</b>
+      <p>Tradisi, festival, sejarah</p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="feature-icon">🍜</div>
+    <div><b>Kuliner Lezat</b>
+      <p>Ramen, sushi, takoyaki</p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="feature-icon">🚄</div>
+    <div><b>Transportasi Modern</b>
+      <p>Cepat, nyaman, praktis</p>
+    </div>
+  </div>
+</div>
+
+<!-- DESTINASI -->
+<section id="destinasi">
+  <div class="section-heading">
+    <h2>Destinasi Populer di Jepang</h2>
+    <p>Jelajahi tempat-tempat menakjubkan yang wajib dikunjungi.</p>
+  </div>
+
+  <div class="destinations">
+    <article class="destination">
+      <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=800&q=80" alt="Tokyo">
+      <div class="destination-info">
+        <h3>Tokyo</h3>
+        <p>Kota metropolitan yang penuh inovasi dan hiburan.</p>
+      </div>
+    </article>
+
+    <article class="destination">
+      <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&q=80" alt="Gunung Fuji">
+      <div class="destination-info">
+        <h3>Fuji</h3>
+        <p>Ikon Jepang dengan pemandangan yang memesona.</p>
+      </div>
+    </article>
+
+    <article class="destination">
+      <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&q=80" alt="Kyoto">
+      <div class="destination-info">
+        <h3>Kyoto</h3>
+        <p>Menikmati keindahan sejarah dan tradisi Jepang.</p>
+      </div>
+    </article>
+
+    <article class="destination">
+      <img src="https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&w=800&q=80" alt="Osaka">
+      <div class="destination-info">
+        <h3>Osaka</h3>
+        <p>Kota kuliner dengan suasana yang hidup.</p>
+      </div>
+    </article>
   </div>
 </section>
-</main>
-<footer id="kontak">© 2026 Ardian Yusuf Firdaus · Explore the Universe</footer>
-<script>
-const canvas=document.getElementById("stars"),ctx=canvas.getContext("2d");
-let stars=[];
-function resize(){canvas.width=canvas.offsetWidth;canvas.height=canvas.offsetHeight;stars=Array.from({length:180},()=>({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*1.6+.2,a:Math.random()*.8+.2,s:Math.random()*.015+.003}));}
-function draw(){ctx.clearRect(0,0,canvas.width,canvas.height);for(const s of stars){s.a+=s.s;if(s.a>1||s.a<.15)s.s*=-1;ctx.fillStyle=`rgba(190,225,255,${s.a})`;ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fill();}requestAnimationFrame(draw);}
-window.addEventListener("resize",resize);resize();draw();
-</script>
+
+<!-- TENTANG -->
+<section class="about" id="about">
+  <img
+    src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=1000&q=80"
+    alt="Suasana tradisional Jepang">
+
+  <div>
+    <h2>Tentang Jepang</h2>
+    <p>
+      Jepang adalah negara kepulauan di Asia Timur yang
+      terkenal dengan teknologi canggih, budaya yang kaya,
+      serta pemandangan alam yang indah.
+    </p>
+    <p>
+      Dari kota modern hingga desa tradisional, Jepang
+      menawarkan pengalaman menarik bagi setiap pengunjung.
+    </p>
+    <a href="#budaya" class="btn">Kenali Budayanya →</a>
+  </div>
+
+  <div class="facts">
+    <h3>🌸 Fakta Menarik</h3>
+    <ul>
+      <li>Ibu kota: Tokyo</li>
+      <li>Bahasa: Jepang</li>
+      <li>Mata uang: Yen (JPY)</li>
+      <li>Julukan: Negeri Matahari Terbit</li>
+      <li>Musim populer: Sakura dan momiji</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BUDAYA -->
+<section id="budaya">
+  <div class="section-heading">
+    <h2>Budaya Jepang</h2>
+    <p>Mengenal tradisi dan kebiasaan khas masyarakat Jepang.</p>
+  </div>
+
+  <div class="tips-grid">
+    <div class="tip">
+      <span>👘</span>
+      <h3>Kimono</h3>
+      <p>Pakaian tradisional yang sering dikenakan saat festival dan acara khusus.</p>
+    </div>
+
+    <div class="tip">
+      <span>🍵</span>
+      <h3>Upacara Teh</h3>
+      <p>Tradisi menyajikan teh yang mengutamakan ketenangan dan tata krama.</p>
+    </div>
+
+    <div class="tip">
+      <span>🌸</span>
+      <h3>Hanami</h3>
+      <p>Kebiasaan menikmati keindahan bunga sakura saat musim semi.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TIPS -->
+<section class="tips" id="tips">
+  <div class="section-heading">
+    <h2>Tips Perjalanan</h2>
+    <p>Persiapkan perjalananmu agar lebih nyaman.</p>
+  </div>
+
+  <div class="tips-grid">
+    <div class="tip">
+      <span>🚆</span>
+      <h3>Transportasi</h3>
+      <p>Pelajari rute kereta dan gunakan aplikasi peta untuk membantu perjalanan.</p>
+    </div>
+
+    <div class="tip">
+      <span>💴</span>
+      <h3>Anggaran</h3>
+      <p>Siapkan anggaran untuk penginapan, makanan, tiket, dan transportasi.</p>
+    </div>
+
+    <div class="tip">
+      <span>🙏</span>
+      <h3>Etika Lokal</h3>
+      <p>Hormati aturan setempat, jaga kebersihan, dan perhatikan ketenangan umum.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALERI -->
+<section id="galeri">
+  <div class="section-heading">
+    <h2>Galeri Jepang</h2>
+    <p>Sepenggal keindahan Negeri Matahari Terbit.</p>
+  </div>
+
+  <div class="gallery">
+    <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&q=80" alt="Pemandangan Jepang">
+    <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=800&q=80" alt="Jalan tradisional Jepang">
+    <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=800&q=80" alt="Kota Tokyo">
+  </div>
+</section>
+
+<!-- KONTAK -->
+<section class="contact" id="kontak">
+  <h2>Mulai Petualanganmu!</h2>
+  <p style="margin-top:12px;color:#758094">
+    Jepang menantimu dengan pengalaman yang tak terlupakan.
+  </p>
+  <a href="#home" class="btn">Kembali ke Atas ↑</a>
+</section>
+
+<footer>
+  <h2>🇯🇵 JAPAN</h2>
+  <p>Discover the Land of the Rising Sun</p>
+  <p>© 2026 Japan Travel. Dibuat dengan ❤️</p>
+</footer>
+
 </body>
 </html>
+
 
