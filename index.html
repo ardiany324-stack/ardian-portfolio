@@ -1,621 +1,1058 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JAPAN | Negeri Matahari Terbit</title>
+
+<title>Ardian Yusuf Firdaus | SMA Negeri 1 Purbalingga</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
 }
 
-body {
-  font-family: Arial, sans-serif;
-  color: #202b3c;
-  background: #f8fafc;
+body{
+    font-family:'Plus Jakarta Sans',sans-serif;
+    background:#f4f8fd;
+    color:#172942;
 }
 
-header {
-  height: 75px;
-  background: white;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 7%;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  box-shadow: 0 2px 12px #0000000d;
+a{
+    text-decoration:none;
+    color:inherit;
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.container{
+    width:92%;
+    max-width:1150px;
+    margin:auto;
 }
 
-.logo-icon {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  background: #e62945;
-  color: white;
-  display: grid;
-  place-items: center;
-  font-size: 25px;
+/* NAVBAR */
+
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:1000;
+    transition:.3s;
 }
 
-.logo h2 {
-  font-size: 24px;
-  letter-spacing: 2px;
+header.scrolled{
+    background:rgba(5,20,45,.95);
+    backdrop-filter:blur(15px);
 }
 
-.logo small {
-  font-size: 11px;
-  color: #667085;
+nav{
+    height:75px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 }
 
-nav {
-  display: flex;
-  gap: 25px;
+.logo{
+    color:white;
+    display:flex;
+    align-items:center;
+    gap:12px;
 }
 
-nav a {
-  color: #273449;
-  text-decoration: none;
-  font-size: 14px;
+.logo-icon{
+    width:45px;
+    height:45px;
+    border-radius:13px;
+    background:linear-gradient(135deg,#21c9ff,#0874df);
+    display:grid;
+    place-items:center;
+    font-size:22px;
 }
 
-nav a:hover {
-  color: #e62945;
+.logo small{
+    display:block;
+    font-size:8px;
+    letter-spacing:1px;
+    opacity:.7;
 }
 
-.hero {
-  min-height: 410px;
-  display: flex;
-  align-items: center;
-  padding: 60px 8%;
-  color: white;
-  background:
-    linear-gradient(90deg, #102c50df, #102c5040),
-    url("https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=2000&q=85")
-    center 48% / cover;
+.logo strong{
+    font-size:14px;
 }
 
-.hero-content {
-  max-width: 600px;
+.logo span{
+    color:#51d7ff;
 }
 
-.hero small {
-  letter-spacing: 2px;
-  font-weight: bold;
+.nav-links{
+    display:flex;
+    list-style:none;
+    gap:28px;
 }
 
-.hero h1 {
-  font-size: clamp(38px, 6vw, 65px);
-  margin: 15px 0;
+.nav-links a{
+    color:white;
+    font-size:12px;
+    font-weight:700;
+    transition:.2s;
 }
 
-.hero p {
-  line-height: 1.8;
-  max-width: 550px;
+.nav-links a:hover{
+    color:#4ed8ff;
 }
 
-.btn {
-  display: inline-block;
-  margin-top: 25px;
-  padding: 14px 25px;
-  background: #e62945;
-  color: white;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: .3s;
+.menu{
+    display:none;
+    color:white;
+    font-size:28px;
 }
 
-.btn:hover {
-  background: #bd1731;
-  transform: translateY(-3px);
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    color:white;
+    background:
+    linear-gradient(90deg,rgba(2,15,38,.95),rgba(2,15,38,.65),rgba(2,15,38,.2)),
+    url("sekolah.jpg") center/cover;
 }
 
-.features {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 25px;
-  padding: 35px 8%;
-  background: white;
+.hero-content{
+    padding-top:80px;
+    max-width:800px;
 }
 
-.feature {
-  display: flex;
-  align-items: center;
-  gap: 14px;
+.badge{
+    display:inline-block;
+    padding:9px 15px;
+    border:1px solid rgba(255,255,255,.3);
+    border-radius:30px;
+    background:rgba(255,255,255,.08);
+    font-size:10px;
+    font-weight:bold;
+    letter-spacing:1px;
 }
 
-.feature-icon {
-  width: 50px;
-  height: 50px;
-  flex-shrink: 0;
-  border-radius: 50%;
-  background: #e62945;
-  color: white;
-  display: grid;
-  place-items: center;
-  font-size: 23px;
+.hero h1{
+    font-size:clamp(45px,7vw,80px);
+    line-height:1;
+    letter-spacing:-3px;
+    margin:25px 0 20px;
 }
 
-.feature p {
-  font-size: 12px;
-  color: #748094;
-  margin-top: 7px;
+.hero h1 span{
+    color:#54d9ff;
 }
 
-section {
-  padding: 55px 8%;
+.hero p{
+    color:#dce9f8;
+    line-height:1.8;
+    font-size:14px;
+    max-width:700px;
 }
 
-.section-heading {
-  margin-bottom: 25px;
+.buttons{
+    margin-top:30px;
+    display:flex;
+    gap:12px;
 }
 
-.section-heading h2 {
-  font-size: 28px;
-  margin-bottom: 8px;
+.btn{
+    padding:14px 21px;
+    border-radius:12px;
+    font-size:12px;
+    font-weight:bold;
+    transition:.3s;
 }
 
-.section-heading p {
-  color: #758094;
+.primary{
+    background:linear-gradient(135deg,#0ba5f5,#076bd1);
+    color:white;
 }
 
-.destinations {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
+.primary:hover{
+    transform:translateY(-3px);
 }
 
-.destination {
-  height: 245px;
-  position: relative;
-  overflow: hidden;
-  border-radius: 12px;
-  background: #263746;
-  box-shadow: 0 5px 15px #00000012;
+.outline{
+    border:1px solid rgba(255,255,255,.4);
+    color:white;
 }
 
-.destination img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform .5s;
+.outline:hover{
+    background:white;
+    color:#061a38;
 }
 
-.destination:hover img {
-  transform: scale(1.08);
+/* SECTION */
+
+section{
+    padding:95px 0;
 }
 
-.destination-info {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 20px 15px;
-  color: white;
-  background: linear-gradient(transparent, #000d);
+.section-title{
+    text-align:center;
+    max-width:700px;
+    margin:0 auto 45px;
 }
 
-.destination-info h3 {
-  font-size: 21px;
-  margin-bottom: 7px;
+.kicker{
+    color:#087fe8;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:2px;
+    text-transform:uppercase;
 }
 
-.destination-info p {
-  font-size: 13px;
-  line-height: 1.5;
+.section-title h2{
+    font-size:40px;
+    margin:10px 0;
 }
 
-.about {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 35px;
-  align-items: center;
-  background: white;
+.section-title p{
+    color:#6b7b91;
+    font-size:13px;
 }
 
-.about img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 14px;
+/* PROFIL */
+
+.profile{
+    background:white;
 }
 
-.about p {
-  color: #697586;
-  line-height: 1.8;
-  margin-top: 12px;
+.profile-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:55px;
+    align-items:center;
 }
 
-.facts {
-  background: #fff0f2;
-  padding: 25px;
-  border-radius: 14px;
+.main-photo{
+    position:relative;
+    border-radius:25px;
+    overflow:hidden;
+    box-shadow:0 20px 55px rgba(10,38,78,.15);
 }
 
-.facts h3 {
-  margin-bottom: 15px;
+.main-photo img{
+    width:100%;
+    height:470px;
+    object-fit:cover;
+    display:block;
 }
 
-.facts li {
-  margin: 12px 0 12px 20px;
-  color: #596579;
+.photo-info{
+    position:absolute;
+    bottom:20px;
+    left:20px;
+    right:20px;
+    padding:17px;
+    border-radius:15px;
+    background:rgba(3,18,42,.75);
+    backdrop-filter:blur(10px);
+    color:white;
 }
 
-.tips {
-  background: #f1f6fb;
+.photo-info strong{
+    display:block;
 }
 
-.tips-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+.photo-info small{
+    color:#c9d8e9;
 }
 
-.tip {
-  background: white;
-  border-radius: 12px;
-  padding: 25px;
+.profile-text h3{
+    font-size:30px;
+    margin-bottom:15px;
 }
 
-.tip span {
-  font-size: 30px;
+.profile-text h3 span{
+    color:#087fe8;
 }
 
-.tip h3 {
-  margin: 12px 0;
+.profile-text p{
+    color:#6b7b91;
+    font-size:13px;
+    line-height:1.9;
 }
 
-.tip p {
-  color: #758094;
-  line-height: 1.7;
-  font-size: 14px;
+.info{
+    margin-top:25px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
 }
 
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
+.info-box{
+    background:#f1f7fd;
+    border-radius:13px;
+    padding:15px;
 }
 
-.gallery img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 12px;
+.info-box small{
+    display:block;
+    color:#8290a3;
+    font-size:9px;
 }
 
-.contact {
-  text-align: center;
-  background: white;
+.info-box b{
+    font-size:12px;
 }
 
-footer {
-  padding: 30px 8%;
-  background: #172337;
-  color: white;
-  text-align: center;
+/* STATISTIK */
+
+.stats{
+    background:linear-gradient(135deg,#061735,#075eaa);
+    color:white;
 }
 
-footer p {
-  color: #bdc6d3;
-  font-size: 13px;
-  margin-top: 10px;
+.stat-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
 }
 
-@media (max-width: 900px) {
-  header {
-    padding: 15px 5%;
-    height: auto;
-    flex-wrap: wrap;
-    gap: 15px;
-  }
-
-  nav {
-    width: 100%;
-    gap: 18px;
-    overflow-x: auto;
-    padding-bottom: 5px;
-  }
-
-  nav a {
-    white-space: nowrap;
-  }
-
-  .features {
-    grid-template-columns: repeat(2, 1fr);
-    padding: 30px 5%;
-  }
-
-  .destinations {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  section {
-    padding: 40px 5%;
-  }
+.stat{
+    text-align:center;
+    padding:20px;
+    border-right:1px solid rgba(255,255,255,.15);
 }
 
-@media (max-width: 550px) {
-  .hero {
-    min-height: 430px;
-    padding: 40px 6%;
-  }
+.stat:last-child{
+    border:none;
+}
 
-  .hero h1 {
-    font-size: 42px;
-  }
+.stat strong{
+    display:block;
+    color:#58dcff;
+    font-size:35px;
+}
 
-  .features {
-    gap: 25px 12px;
-  }
+.stat span{
+    font-size:10px;
+    color:#d3e1ef;
+}
 
-  .feature {
-    align-items: flex-start;
-    flex-direction: column;
-  }
+/* KEGIATAN */
 
-  .destinations,
-  .about,
-  .tips-grid,
-  .gallery {
-    grid-template-columns: 1fr;
-  }
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
 
-  .destination {
-    height: 250px;
-  }
+.card{
+    background:white;
+    border-radius:20px;
+    padding:28px;
+    box-shadow:0 10px 35px rgba(10,38,78,.06);
+    transition:.3s;
+}
 
-  .about img {
-    height: 250px;
-  }
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 45px rgba(10,38,78,.12);
+}
 
-  .gallery img {
-    height: 250px;
-  }
+.icon{
+    width:55px;
+    height:55px;
+    border-radius:15px;
+    background:#e6f5ff;
+    display:grid;
+    place-items:center;
+    font-size:25px;
+    margin-bottom:17px;
+}
+
+.card h3{
+    margin-bottom:8px;
+}
+
+.card p{
+    color:#6b7b91;
+    font-size:12px;
+    line-height:1.8;
+}
+
+/* GALERI */
+
+.gallery{
+    background:white;
+}
+
+.gallery-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    grid-template-rows:220px 220px;
+    gap:13px;
+}
+
+.gallery-item{
+    position:relative;
+    overflow:hidden;
+    border-radius:18px;
+}
+
+.gallery-item:first-child{
+    grid-row:span 2;
+}
+
+.gallery-item img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.5s;
+}
+
+.gallery-item:hover img{
+    transform:scale(1.08);
+}
+
+.caption{
+    position:absolute;
+    bottom:12px;
+    left:12px;
+    right:12px;
+    padding:10px;
+    border-radius:10px;
+    background:rgba(3,15,35,.7);
+    color:white;
+    font-size:10px;
+    font-weight:bold;
+}
+
+/* QUOTE */
+
+.quote{
+    background:linear-gradient(135deg,#061a38,#075eaa);
+    color:white;
+    text-align:center;
+}
+
+.quote h2{
+    max-width:850px;
+    margin:auto;
+    font-size:clamp(25px,4vw,42px);
+    line-height:1.4;
+}
+
+.quote p{
+    margin-top:18px;
+    color:#61dcff;
+    font-size:11px;
+}
+
+/* FOOTER */
+
+footer{
+    background:#030d21;
+    color:#8ea0b9;
+    padding:45px 0 20px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:1.5fr 1fr 1fr;
+    gap:35px;
+    padding-bottom:30px;
+}
+
+footer h3{
+    color:white;
+    font-size:14px;
+    margin-bottom:12px;
+}
+
+footer p,
+footer a{
+    font-size:10px;
+    line-height:2;
+}
+
+.copyright{
+    border-top:1px solid rgba(255,255,255,.1);
+    text-align:center;
+    padding-top:18px;
+    font-size:9px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:800px){
+
+    .nav-links{
+        display:none;
+        position:absolute;
+        top:75px;
+        left:0;
+        right:0;
+        background:#061a38;
+        flex-direction:column;
+        padding:25px;
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    .menu{
+        display:block;
+        cursor:pointer;
+    }
+
+    .profile-grid{
+        grid-template-columns:1fr;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .stat-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .stat{
+        border:none;
+        border-bottom:1px solid rgba(255,255,255,.15);
+    }
+
+    .gallery-grid{
+        grid-template-columns:1fr 1fr;
+        grid-template-rows:200px 200px 200px;
+    }
+
+    .gallery-item:first-child{
+        grid-column:span 2;
+        grid-row:auto;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:500px){
+
+    .hero h1{
+        font-size:45px;
+    }
+
+    .buttons{
+        flex-direction:column;
+    }
+
+    .btn{
+        text-align:center;
+    }
+
+    .info{
+        grid-template-columns:1fr;
+    }
+
+    .stat-grid{
+        grid-template-columns:1fr;
+    }
+
+    .gallery-grid{
+        grid-template-columns:1fr;
+        grid-template-rows:250px 190px 190px 190px 190px;
+    }
+
+    .gallery-item:first-child{
+        grid-column:auto;
+    }
+
+    .main-photo img{
+        height:350px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <div class="logo">
-    <div class="logo-icon">富</div>
-    <div>
-      <h2>JAPAN</h2>
-      <small>Discover the Land of the Rising Sun</small>
-    </div>
-  </div>
+<!-- NAVBAR -->
 
-  <nav>
-    <a href="#home">Beranda</a>
-    <a href="#about">Tentang Jepang</a>
-    <a href="#destinasi">Destinasi</a>
-    <a href="#budaya">Budaya</a>
-    <a href="#tips">Tips Perjalanan</a>
-    <a href="#galeri">Galeri</a>
-    <a href="#kontak">Kontak</a>
-  </nav>
+<header id="header">
+<nav class="container">
+
+<a href="#beranda" class="logo">
+<div class="logo-icon">🎓</div>
+<div>
+<small>SMA NEGERI 1 PURBALINGGA</small>
+<strong>Ardian <span>Yusuf Firdaus</span></strong>
+</div>
+</a>
+
+<ul class="nav-links" id="navLinks">
+<li><a href="#beranda">Beranda</a></li>
+<li><a href="#profil">Profil</a></li>
+<li><a href="#sekolah">Sekolah</a></li>
+<li><a href="#kegiatan">Kegiatan</a></li>
+<li><a href="#galeri">Galeri</a></li>
+</ul>
+
+<div class="menu" onclick="toggleMenu()">☰</div>
+
+</nav>
 </header>
 
+
 <!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-content">
-    <small>SELAMAT DATANG DI JEPANG</small>
-    <h1>Negeri Matahari Terbit</h1>
-    <p>
-      Jepang adalah perpaduan sempurna antara tradisi
-      dan modernitas. Temukan keindahan alam, budaya unik,
-      kuliner lezat, dan pengalaman tak terlupakan.
-    </p>
-    <a href="#destinasi" class="btn">Jelajahi Jepang →</a>
-  </div>
-</section>
 
-<!-- KEUNGGULAN -->
-<div class="features">
-  <div class="feature">
-    <div class="feature-icon">富</div>
-    <div><b>Alam Memukau</b>
-      <p>Gunung, danau, dan sakura</p>
-    </div>
-  </div>
+<section class="hero" id="beranda">
 
-  <div class="feature">
-    <div class="feature-icon">🏯</div>
-    <div><b>Budaya yang Kaya</b>
-      <p>Tradisi, festival, sejarah</p>
-    </div>
-  </div>
+<div class="container hero-content">
 
-  <div class="feature">
-    <div class="feature-icon">🍜</div>
-    <div><b>Kuliner Lezat</b>
-      <p>Ramen, sushi, takoyaki</p>
-    </div>
-  </div>
-
-  <div class="feature">
-    <div class="feature-icon">🚄</div>
-    <div><b>Transportasi Modern</b>
-      <p>Cepat, nyaman, praktis</p>
-    </div>
-  </div>
+<div class="badge">
+● WEBSITE PROFIL SISWA · 2026
 </div>
 
-<!-- DESTINASI -->
-<section id="destinasi">
-  <div class="section-heading">
-    <h2>Destinasi Populer di Jepang</h2>
-    <p>Jelajahi tempat-tempat menakjubkan yang wajib dikunjungi.</p>
-  </div>
+<h1>
+Ardian <span>Yusuf Firdaus</span>
+</h1>
 
-  <div class="destinations">
-    <article class="destination">
-      <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=800&q=80" alt="Tokyo">
-      <div class="destination-info">
-        <h3>Tokyo</h3>
-        <p>Kota metropolitan yang penuh inovasi dan hiburan.</p>
-      </div>
-    </article>
+<p>
+Selamat datang di website pribadi saya. 
+Mengenal lebih dekat perjalanan belajar, lingkungan sekolah,
+kegiatan, dan semangat untuk terus berkembang di
+SMA Negeri 1 Purbalingga.
+</p>
 
-    <article class="destination">
-      <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&q=80" alt="Gunung Fuji">
-      <div class="destination-info">
-        <h3>Fuji</h3>
-        <p>Ikon Jepang dengan pemandangan yang memesona.</p>
-      </div>
-    </article>
+<div class="buttons">
 
-    <article class="destination">
-      <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&q=80" alt="Kyoto">
-      <div class="destination-info">
-        <h3>Kyoto</h3>
-        <p>Menikmati keindahan sejarah dan tradisi Jepang.</p>
-      </div>
-    </article>
+<a href="#profil" class="btn primary">
+Jelajahi Profil →
+</a>
 
-    <article class="destination">
-      <img src="https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&w=800&q=80" alt="Osaka">
-      <div class="destination-info">
-        <h3>Osaka</h3>
-        <p>Kota kuliner dengan suasana yang hidup.</p>
-      </div>
-    </article>
-  </div>
+<a href="#galeri" class="btn outline">
+Lihat Galeri
+</a>
+
+</div>
+
+</div>
+
 </section>
 
-<!-- TENTANG -->
-<section class="about" id="about">
-  <img
-    src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=1000&q=80"
-    alt="Suasana tradisional Jepang">
 
-  <div>
-    <h2>Tentang Jepang</h2>
-    <p>
-      Jepang adalah negara kepulauan di Asia Timur yang
-      terkenal dengan teknologi canggih, budaya yang kaya,
-      serta pemandangan alam yang indah.
-    </p>
-    <p>
-      Dari kota modern hingga desa tradisional, Jepang
-      menawarkan pengalaman menarik bagi setiap pengunjung.
-    </p>
-    <a href="#budaya" class="btn">Kenali Budayanya →</a>
-  </div>
+<!-- PROFIL -->
 
-  <div class="facts">
-    <h3>🌸 Fakta Menarik</h3>
-    <ul>
-      <li>Ibu kota: Tokyo</li>
-      <li>Bahasa: Jepang</li>
-      <li>Mata uang: Yen (JPY)</li>
-      <li>Julukan: Negeri Matahari Terbit</li>
-      <li>Musim populer: Sakura dan momiji</li>
-    </ul>
-  </div>
+<section class="profile" id="profil">
+
+<div class="container">
+
+<div class="section-title">
+
+<div class="kicker">Profil</div>
+
+<h2>
+Belajar, Bertumbuh, Berkarya.
+</h2>
+
+<p>
+Ruang digital untuk memperkenalkan Ardian Yusuf Firdaus
+dan lingkungan sekolah.
+</p>
+
+</div>
+
+
+<div class="profile-grid">
+
+<div class="main-photo">
+
+<img src="sekolah.jpg" alt="SMA Negeri 1 Purbalingga">
+
+<div class="photo-info">
+
+<strong>SMA Negeri 1 Purbalingga</strong>
+
+<small>
+Purbalingga · Jawa Tengah
+</small>
+
+</div>
+
+</div>
+
+
+<div class="profile-text">
+
+<h3>
+Halo, saya <span>Ardian</span> 👋
+</h3>
+
+<p>
+Saya adalah pelajar yang sedang menempuh pendidikan
+di SMA Negeri 1 Purbalingga. Website ini menjadi media
+untuk memperkenalkan diri, menyimpan dokumentasi kegiatan,
+dan membagikan semangat dalam mempersiapkan masa depan.
+</p>
+
+
+<div class="info">
+
+<div class="info-box">
+<small>NAMA</small>
+<b>Ardian Yusuf Firdaus</b>
+</div>
+
+<div class="info-box">
+<small>STATUS</small>
+<b>Pelajar</b>
+</div>
+
+<div class="info-box">
+<small>SEKOLAH</small>
+<b>SMA Negeri 1 Purbalingga</b>
+</div>
+
+<div class="info-box">
+<small>WILAYAH</small>
+<b>Purbalingga, Jawa Tengah</b>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
-<!-- BUDAYA -->
-<section id="budaya">
-  <div class="section-heading">
-    <h2>Budaya Jepang</h2>
-    <p>Mengenal tradisi dan kebiasaan khas masyarakat Jepang.</p>
-  </div>
 
-  <div class="tips-grid">
-    <div class="tip">
-      <span>👘</span>
-      <h3>Kimono</h3>
-      <p>Pakaian tradisional yang sering dikenakan saat festival dan acara khusus.</p>
-    </div>
+<!-- STATISTIK -->
 
-    <div class="tip">
-      <span>🍵</span>
-      <h3>Upacara Teh</h3>
-      <p>Tradisi menyajikan teh yang mengutamakan ketenangan dan tata krama.</p>
-    </div>
+<section class="stats" id="sekolah">
 
-    <div class="tip">
-      <span>🌸</span>
-      <h3>Hanami</h3>
-      <p>Kebiasaan menikmati keindahan bunga sakura saat musim semi.</p>
-    </div>
-  </div>
+<div class="container">
+
+<div class="stat-grid">
+
+<div class="stat">
+<strong>01</strong>
+<span>Sekolah</span>
+</div>
+
+<div class="stat">
+<strong>∞</strong>
+<span>Cita-cita</span>
+</div>
+
+<div class="stat">
+<strong>100%</strong>
+<span>Semangat Belajar</span>
+</div>
+
+<div class="stat">
+<strong>2026</strong>
+<span>Perjalanan</span>
+</div>
+
+</div>
+
+</div>
+
 </section>
 
-<!-- TIPS -->
-<section class="tips" id="tips">
-  <div class="section-heading">
-    <h2>Tips Perjalanan</h2>
-    <p>Persiapkan perjalananmu agar lebih nyaman.</p>
-  </div>
 
-  <div class="tips-grid">
-    <div class="tip">
-      <span>🚆</span>
-      <h3>Transportasi</h3>
-      <p>Pelajari rute kereta dan gunakan aplikasi peta untuk membantu perjalanan.</p>
-    </div>
+<!-- KEGIATAN -->
 
-    <div class="tip">
-      <span>💴</span>
-      <h3>Anggaran</h3>
-      <p>Siapkan anggaran untuk penginapan, makanan, tiket, dan transportasi.</p>
-    </div>
+<section id="kegiatan">
 
-    <div class="tip">
-      <span>🙏</span>
-      <h3>Etika Lokal</h3>
-      <p>Hormati aturan setempat, jaga kebersihan, dan perhatikan ketenangan umum.</p>
-    </div>
-  </div>
+<div class="container">
+
+<div class="section-title">
+
+<div class="kicker">Kehidupan Sekolah</div>
+
+<h2>
+Tempat untuk Berkembang
+</h2>
+
+<p>
+Belajar bukan hanya tentang pelajaran,
+tetapi juga pengalaman dan karakter.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+<div class="card">
+
+<div class="icon">📚</div>
+
+<h3>
+Pembelajaran
+</h3>
+
+<p>
+Membangun pengetahuan dan keterampilan
+melalui proses belajar yang konsisten.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">💡</div>
+
+<h3>
+Kreativitas
+</h3>
+
+<p>
+Mengembangkan ide, mencoba hal baru,
+dan menghasilkan karya yang bermanfaat.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🏆</div>
+
+<h3>
+Prestasi
+</h3>
+
+<p>
+Berusaha memberikan kemampuan terbaik
+dan menghargai setiap proses.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
+
 
 <!-- GALERI -->
-<section id="galeri">
-  <div class="section-heading">
-    <h2>Galeri Jepang</h2>
-    <p>Sepenggal keindahan Negeri Matahari Terbit.</p>
-  </div>
 
-  <div class="gallery">
-    <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&q=80" alt="Pemandangan Jepang">
-    <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=800&q=80" alt="Jalan tradisional Jepang">
-    <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=800&q=80" alt="Kota Tokyo">
-  </div>
+<section class="gallery" id="galeri">
+
+<div class="container">
+
+<div class="section-title">
+
+<div class="kicker">Dokumentasi</div>
+
+<h2>
+Galeri Sekolah
+</h2>
+
+<p>
+Suasana dan momen dari lingkungan
+SMA Negeri 1 Purbalingga.
+</p>
+
+</div>
+
+
+<div class="gallery-grid">
+
+<div class="gallery-item">
+
+<img src="sekolah.jpg" alt="Gedung sekolah">
+
+<div class="caption">
+Gedung Sekolah
+</div>
+
+</div>
+
+
+<div class="gallery-item">
+
+<img src="galeri1.jpg" alt="Lingkungan sekolah">
+
+<div class="caption">
+Lingkungan Sekolah
+</div>
+
+</div>
+
+
+<div class="gallery-item">
+
+<img src="galeri2.jpg" alt="Kegiatan sekolah">
+
+<div class="caption">
+Kegiatan Sekolah
+</div>
+
+</div>
+
+
+<div class="gallery-item">
+
+<img src="galeri3.jpg" alt="Lapangan sekolah">
+
+<div class="caption">
+Lapangan Sekolah
+</div>
+
+</div>
+
+
+<div class="gallery-item">
+
+<img src="galeri4.jpg" alt="Momen sekolah">
+
+<div class="caption">
+Momen Kebersamaan
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
-<!-- KONTAK -->
-<section class="contact" id="kontak">
-  <h2>Mulai Petualanganmu!</h2>
-  <p style="margin-top:12px;color:#758094">
-    Jepang menantimu dengan pengalaman yang tak terlupakan.
-  </p>
-  <a href="#home" class="btn">Kembali ke Atas ↑</a>
+
+<!-- QUOTE -->
+
+<section class="quote">
+
+<div class="container">
+
+<h2>
+“Belajar hari ini, berkembang setiap hari,
+dan mempersiapkan masa depan.”
+</h2>
+
+<p>
+— Ardian Yusuf Firdaus
+</p>
+
+</div>
+
 </section>
+
+
+<!-- FOOTER -->
 
 <footer>
-  <h2>🇯🇵 JAPAN</h2>
-  <p>Discover the Land of the Rising Sun</p>
-  <p>© 2026 Japan Travel. Dibuat dengan ❤️</p>
+
+<div class="container">
+
+<div class="footer-grid">
+
+<div>
+
+<h3>
+Ardian Yusuf Firdaus
+</h3>
+
+<p>
+Website profil siswa dengan konsep
+modern dan profesional.
+</p>
+
+</div>
+
+
+<div>
+
+<h3>
+Navigasi
+</h3>
+
+<p>
+<a href="#beranda">Beranda</a>
+</p>
+
+<p>
+<a href="#profil">Profil</a>
+</p>
+
+<p>
+<a href="#galeri">Galeri</a>
+</p>
+
+</div>
+
+
+<div>
+
+<h3>
+Sekolah
+</h3>
+
+<p>
+SMA Negeri 1 Purbalingga
+</p>
+
+<p>
+Purbalingga, Jawa Tengah
+</p>
+
+</div>
+
+</div>
+
+
+<div class="copyright">
+
+© 2026 Ardian Yusuf Firdaus ·
+SMA Negeri 1 Purbalingga
+
+</div>
+
+</div>
+
 </footer>
+
+
+<script>
+
+function toggleMenu(){
+
+document
+.getElementById("navLinks")
+.classList.toggle("active");
+
+}
+
+
+window.addEventListener("scroll",function(){
+
+const header=document.getElementById("header");
+
+if(window.scrollY>30){
+
+header.classList.add("scrolled");
+
+}else{
+
+header.classList.remove("scrolled");
+
+}
+
+});
+
+</script>
 
 </body>
 </html>
-
 
