@@ -4,360 +4,92 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ardian Mahjong</title>
-
+<title>Ardian.dev | Explore Space</title>
 <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  min-height: 100vh;
-  font-family: Arial, sans-serif;
-  color: white;
-  background:
-    radial-gradient(ellipse at top, #164e8a, #061326 70%);
-}
-
-header {
-  padding: 22px;
-  text-align: center;
-  border-bottom: 1px solid #2563a866;
-}
-
-header h1 {
-  color: #93c5fd;
-  letter-spacing: 3px;
-  font-size: 27px;
-}
-
-header p {
-  color: #9db9d9;
-  margin-top: 8px;
-  font-size: 13px;
-}
-
-.container {
-  max-width: 900px;
-  margin: auto;
-  padding: 22px 14px;
-}
-
-.info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-.stat {
-  background: #10294a;
-  border: 1px solid #28558a;
-  padding: 12px 18px;
-  border-radius: 12px;
-  text-align: center;
-  flex: 1;
-}
-
-.stat small {
-  display: block;
-  color: #91b9e9;
-  margin-bottom: 5px;
-}
-
-.stat strong {
-  font-size: 22px;
-}
-
-.board {
-  display: grid;
-  grid-template-columns: repeat(8, minmax(0, 1fr));
-  gap: 7px;
-  padding: 14px;
-  background: #071a31cc;
-  border: 1px solid #24538a;
-  border-radius: 18px;
-  box-shadow: 0 0 35px #0284c733;
-}
-
-.tile {
-  aspect-ratio: 0.78;
-  min-width: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: clamp(20px, 5vw, 37px);
-  color: #164e63;
-  background: linear-gradient(145deg, #ffffff, #cbdff4);
-  border: 2px solid #8db8df;
-  border-bottom: 5px solid #789fc7;
-  border-radius: 8px;
-  cursor: pointer;
-  user-select: none;
-  transition: 0.15s;
-}
-
-.tile:hover {
-  transform: translateY(-3px);
-  background: #e0f2fe;
-}
-
-.tile.selected {
-  background: #fde68a;
-  border-color: #f59e0b;
-  transform: translateY(-5px);
-  box-shadow: 0 0 16px #fbbf24aa;
-}
-
-.tile.removed {
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.controls {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin: 22px 0;
-}
-
-button {
-  padding: 13px 22px;
-  border: 1px solid #60a5fa;
-  border-radius: 10px;
-  background: #123e70;
-  color: white;
-  font-size: 14px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-button.primary {
-  background: linear-gradient(135deg, #2563eb, #0284c7);
-}
-
-button:hover {
-  filter: brightness(1.2);
-}
-
-#message {
-  text-align: center;
-  min-height: 24px;
-  color: #bfdbfe;
-  margin-bottom: 18px;
-}
-
-footer {
-  text-align: center;
-  padding: 25px;
-  color: #6685a9;
-  font-size: 12px;
-}
-
-@media (max-width: 480px) {
-  .board {
-    gap: 4px;
-    padding: 8px;
-  }
-
-  .tile {
-    border-radius: 5px;
-    border-width: 1px;
-    border-bottom-width: 3px;
-  }
-
-  .stat {
-    padding: 10px 5px;
-  }
-}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,sans-serif;background:#020817;color:#fff;overflow-x:hidden}
+header{height:72px;padding:0 5%;display:flex;align-items:center;justify-content:space-between;gap:18px;position:relative;z-index:5;background:#030b1deF;border-bottom:1px solid #164e83}
+.logo{font-size:23px;font-weight:bold;letter-spacing:1px;white-space:nowrap}.logo span{color:#38bdf8}
+nav{display:flex;gap:25px}nav a{color:#dbeafe;text-decoration:none;font-size:14px}nav a:hover{color:#38bdf8}
+.navbtn,.btn{display:inline-block;text-decoration:none;color:#fff;border:1px solid #38a8ff;border-radius:30px;padding:12px 22px}
+.navbtn{white-space:nowrap}
+.hero{min-height:760px;height:calc(100vh - 72px);max-height:1000px;position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;background:radial-gradient(ellipse at 70% 70%,#07529a 0%,transparent 38%),radial-gradient(ellipse at 50% 10%,#122d6b 0%,transparent 40%),linear-gradient(#03091c,#061936 75%,#020817)}
+#stars{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
+.nebula{position:absolute;width:420px;height:300px;top:5%;left:40%;background:#2563eb;filter:blur(110px);opacity:.25;z-index:-1}
+.planet{position:absolute;border-radius:50%;pointer-events:none}
+.earth{width:min(62vw,650px);aspect-ratio:1;right:-12%;bottom:-38%;background:radial-gradient(ellipse at 30% 30%,#78d8ff,#1769bb 25%,#09254f 57%,#010713 74%);border:2px solid #43baff;box-shadow:0 0 35px #078bff,inset -35px -20px 70px #000}
+.small{width:150px;height:150px;top:13%;left:-55px;background:radial-gradient(circle at 30% 25%,#547fa9,#102342 60%,#020817);box-shadow:0 0 35px #438fff33}
+.saturn{width:90px;height:90px;top:17%;right:13%;background:radial-gradient(circle at 30% 25%,#c4e7ff,#244c83 55%,#050c20)}
+.saturn:after{content:"";position:absolute;width:160%;height:40%;top:35%;left:-30%;border:7px solid #78baff;border-radius:50%;transform:rotate(-20deg)}
+.orbit{position:absolute;width:800px;height:330px;border:1px solid #168bff30;border-radius:50%;transform:rotate(-20deg);pointer-events:none}.orbit.two{width:1000px;height:440px}
+.content{position:relative;z-index:2;width:92%;max-width:950px;padding:30px 0}
+.eyebrow{color:#bfdbfe;letter-spacing:5px;font-size:13px;margin-bottom:22px}
+h1{font-size:clamp(32px,5.5vw,68px);font-style:italic;font-weight:900;line-height:1.15;text-shadow:0 0 25px #078bff55}
+h1 span{color:#168bff}
+.subtitle{margin:24px auto 30px;max-width:680px;color:#c5d9f6;font-size:17px;line-height:1.8}
+.actions{display:flex;justify-content:center;gap:15px;flex-wrap:wrap}
+.btn.primary{background:linear-gradient(120deg,#087cff,#0756c9);box-shadow:0 0 25px #078bff55}.btn:hover,.navbtn:hover{box-shadow:0 0 25px #078bff88;transform:translateY(-2px)}
+.cards{position:absolute;bottom:22px;left:5%;display:flex;gap:12px;z-index:3}
+.card{width:180px;padding:17px;border:1px solid #28639a;border-radius:14px;background:#05142eE8;backdrop-filter:blur(12px);text-align:left}
+.card .icon{font-size:25px;color:#38bdf8;margin-bottom:9px}.card h3{font-size:15px;margin-bottom:7px}.card p{font-size:12px;line-height:1.6;color:#aac6e9}
+section.planets{padding:85px 5%;text-align:center;background:radial-gradient(ellipse at center top,#0b2b55,#020817 70%)}
+.section-title{font-size:36px;margin-bottom:15px}.section-title span{color:#38bdf8}.section-desc{color:#a9c3e4;line-height:1.8;margin-bottom:40px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:1100px;margin:auto}
+.planet-card{padding:25px 15px;border:1px solid #174a7a;background:#07172dcc;border-radius:16px;transition:.25s}
+.planet-card:hover{transform:translateY(-6px);border-color:#38bdf8;box-shadow:0 0 25px #078bff22}
+.planet-icon{font-size:48px;margin-bottom:14px}.planet-card h3{margin-bottom:10px;color:#bfdbfe}.planet-card p{font-size:13px;line-height:1.7;color:#91abc9}
+footer{text-align:center;padding:25px;background:#020611;border-top:1px solid #16395f;color:#7896ba;font-size:13px}
+@media(max-width:850px){header{padding:0 4%}nav{gap:13px}nav a{font-size:12px}.navbtn{display:none}.earth{width:480px;right:-35%;bottom:-15%;opacity:.7}.cards{left:3%;gap:7px}.card{width:145px;padding:12px}.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:550px){header{height:auto;min-height:70px;flex-wrap:wrap;padding:15px 5%;gap:14px}.logo{font-size:20px}nav{width:100%;justify-content:space-between;gap:8px}.hero{height:auto;min-height:790px;padding:55px 0 235px}.content{width:92%}.eyebrow{font-size:10px;letter-spacing:3px}h1{font-size:clamp(30px,8vw,42px)}.subtitle{font-size:14px}.btn{padding:13px 18px;font-size:13px}.earth{width:370px;right:-35%;bottom:-4%;opacity:.55}.small{width:100px;height:100px}.saturn{width:65px;height:65px;right:7%}.cards{bottom:17px;left:4%;right:4%;display:grid;grid-template-columns:repeat(3,1fr)}.card{width:auto;padding:10px}.card .icon{font-size:20px}.card h3{font-size:12px}.card p{font-size:10px}.section-title{font-size:28px}.grid{gap:10px}.planet-card{padding:20px 10px}.planet-icon{font-size:38px}}
 </style>
 </head>
-
 <body>
-
 <header>
-  <h1>🀄 ARDIAN MAHJONG</h1>
-  <p>Mahjong Solitaire · Blue Edition</p>
+  <div class="logo">🪐 ARDIAN<span>.DEV</span></div>
+  <nav><a href="#home">Home</a><a href="#tentang">Tentang</a><a href="#planet">Planet</a><a href="#kontak">Kontak</a></nav>
+  <a class="navbtn" href="#planet">✦ Jelajahi →</a>
 </header>
-
-<main class="container">
-
-  <div class="info">
-    <div class="stat">
-      <small>SKOR</small>
-      <strong id="score">0</strong>
-    </div>
-
-    <div class="stat">
-      <small>PASANGAN</small>
-      <strong id="pairs">0/16</strong>
-    </div>
-
-    <div class="stat">
-      <small>SISA UBIN</small>
-      <strong id="remaining">32</strong>
-    </div>
+<main>
+<section class="hero" id="home">
+  <canvas id="stars"></canvas><div class="nebula"></div>
+  <div class="planet small"></div><div class="planet saturn"></div><div class="planet earth"></div>
+  <div class="orbit"></div><div class="orbit two"></div>
+  <div class="content" id="tentang">
+    <div class="eyebrow">SELAMAT DATANG DI WEBSITE</div>
+    <h1>ARDIAN <span>YUSUF</span> FIRDAUS</h1>
+    <p class="subtitle">Jelajahi dunia, temukan hal baru, dan terus berkembang.<br>Karena perjalanan terbaik selalu dimulai dari langkah kecil.</p>
+    <div class="actions"><a href="#planet" class="btn primary">🚀 Mulai Jelajah&nbsp; ›</a><a href="#kontak" class="btn">♙ Tentang Saya</a></div>
   </div>
-
-  <div id="message">Cocokkan dua ubin dengan gambar yang sama!</div>
-
-  <div class="board" id="board"></div>
-
-  <div class="controls">
-    <button class="primary" onclick="startGame()">
-      ↻ Game Baru
-    </button>
-    <button onclick="shuffleGame()">
-      🔀 Acak Ubin
-    </button>
+  <div class="cards">
+    <div class="card"><div class="icon">🪐</div><h3>Mimpi Besar</h3><p>Selalu ada ruang untuk bermimpi lebih tinggi.</p></div>
+    <div class="card"><div class="icon">⌘</div><h3>Teknologi</h3><p>Mengubah ide menjadi kenyataan.</p></div>
+    <div class="card"><div class="icon">☆</div><h3>Masa Depan</h3><p>Terus belajar dan berkembang.</p></div>
   </div>
-
+</section>
+<section class="planets" id="planet">
+  <h2 class="section-title">Jelajahi <span>Tata Surya</span></h2>
+  <p class="section-desc">Kenali delapan planet yang mengelilingi Matahari.</p>
+  <div class="grid">
+    <article class="planet-card"><div class="planet-icon">⚫</div><h3>Merkurius</h3><p>Planet terkecil dan terdekat dari Matahari.</p></article>
+    <article class="planet-card"><div class="planet-icon">🟡</div><h3>Venus</h3><p>Planet dengan atmosfer yang sangat panas.</p></article>
+    <article class="planet-card"><div class="planet-icon">🌍</div><h3>Bumi</h3><p>Rumah kita, tempat kehidupan berkembang.</p></article>
+    <article class="planet-card"><div class="planet-icon">🔴</div><h3>Mars</h3><p>Dikenal sebagai Planet Merah.</p></article>
+    <article class="planet-card"><div class="planet-icon">🟠</div><h3>Jupiter</h3><p>Planet terbesar di tata surya.</p></article>
+    <article class="planet-card"><div class="planet-icon">🪐</div><h3>Saturnus</h3><p>Terkenal dengan sistem cincinnya.</p></article>
+    <article class="planet-card"><div class="planet-icon">🔵</div><h3>Uranus</h3><p>Planet raksasa es yang berotasi miring.</p></article>
+    <article class="planet-card"><div class="planet-icon">🌐</div><h3>Neptunus</h3><p>Planet terjauh dari Matahari.</p></article>
+  </div>
+</section>
 </main>
-
-<footer>
-  © 2026 Ardian Yusuf Firdaus · Mahjong Blue
-</footer>
-
+<footer id="kontak">© 2026 Ardian Yusuf Firdaus · Explore the Universe</footer>
 <script>
-const symbols = [
-  "🀇", "🀈", "🀉", "🀊",
-  "🀋", "🀌", "🀍", "🀎",
-  "🀏", "🀐", "🀑", "🀒",
-  "🀙", "🀚", "🀛", "🀜"
-];
-
-let tiles = [];
-let selected = [];
-let score = 0;
-let matched = 0;
-let locked = false;
-
-function shuffle(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-  return array;
-}
-
-function startGame() {
-  tiles = shuffle([...symbols, ...symbols].map(
-    (symbol, id) => ({ symbol, id, removed: false })
-  ));
-
-  selected = [];
-  score = 0;
-  matched = 0;
-  locked = false;
-
-  render();
-  updateStats();
-  message("Cocokkan dua ubin dengan gambar yang sama!");
-}
-
-function render() {
-  const board = document.getElementById("board");
-  board.innerHTML = "";
-
-  tiles.forEach(tile => {
-    const el = document.createElement("button");
-    el.className = "tile";
-    el.textContent = tile.removed ? "" : tile.symbol;
-    el.setAttribute("aria-label", "Ubin Mahjong");
-
-    if (tile.removed) el.classList.add("removed");
-    if (selected.includes(tile.id)) {
-      el.classList.add("selected");
-    }
-
-    el.onclick = () => chooseTile(tile.id);
-    board.appendChild(el);
-  });
-}
-
-function chooseTile(id) {
-  if (locked) return;
-
-  const tile = tiles.find(t => t.id === id);
-  if (!tile || tile.removed || selected.includes(id)) return;
-
-  selected.push(id);
-  render();
-
-  if (selected.length === 2) {
-    locked = true;
-
-    const [first, second] = selected.map(
-      id => tiles.find(t => t.id === id)
-    );
-
-    if (first.symbol === second.symbol) {
-      setTimeout(() => {
-        first.removed = true;
-        second.removed = true;
-        matched++;
-        score += 100;
-
-        selected = [];
-        locked = false;
-
-        updateStats();
-        render();
-
-        if (matched === 16) {
-          message("🎉 Selamat! Kamu berhasil menyelesaikan Mahjong!");
-        } else {
-          message("Pasangan cocok! +100 poin");
-        }
-      }, 350);
-    } else {
-      score = Math.max(0, score - 10);
-      updateStats();
-      message("Belum cocok! Coba pasangan lainnya.");
-
-      setTimeout(() => {
-        selected = [];
-        locked = false;
-        render();
-      }, 700);
-    }
-  }
-}
-
-function updateStats() {
-  document.getElementById("score").textContent = score;
-  document.getElementById("pairs").textContent = matched + "/16";
-  document.getElementById("remaining").textContent =
-    32 - matched * 2;
-}
-
-function message(text) {
-  document.getElementById("message").textContent = text;
-}
-
-function shuffleGame() {
-  if (locked) return;
-
-  const remaining = tiles.filter(t => !t.removed);
-  const shuffled = shuffle(remaining.map(t => t.symbol));
-
-  remaining.forEach((tile, i) => {
-    tile.symbol = shuffled[i];
-  });
-
-  selected = [];
-  render();
-  message("Ubin berhasil diacak!");
-}
-
-startGame();
+const canvas=document.getElementById("stars"),ctx=canvas.getContext("2d");
+let stars=[];
+function resize(){canvas.width=canvas.offsetWidth;canvas.height=canvas.offsetHeight;stars=Array.from({length:180},()=>({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*1.6+.2,a:Math.random()*.8+.2,s:Math.random()*.015+.003}));}
+function draw(){ctx.clearRect(0,0,canvas.width,canvas.height);for(const s of stars){s.a+=s.s;if(s.a>1||s.a<.15)s.s*=-1;ctx.fillStyle=`rgba(190,225,255,${s.a})`;ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fill();}requestAnimationFrame(draw);}
+window.addEventListener("resize",resize);resize();draw();
 </script>
-
 </body>
 </html>
-
 
