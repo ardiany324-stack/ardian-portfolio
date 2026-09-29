@@ -1,0 +1,832 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050816">
+<meta name="description" content="Website personal Ardian Yusuf Firdaus — Student, Creator & Future Developer.">
+
+<title>Ardian Yusuf Firdaus | Official Website</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #050816;
+  --panel: #0b1125;
+  --blue: #3984ff;
+  --cyan: #00e5ff;
+  --text: #f3f7ff;
+  --muted: #8995b2;
+  --border: rgba(130,160,255,.15);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 15% 20%, #123a793b, transparent 40%),
+    radial-gradient(ellipse at 85% 55%, #004f7440, transparent 40%),
+    #050816;
+}
+
+#particles {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(1120px, 90%);
+  margin: auto;
+}
+
+/* NAVBAR */
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background: rgba(5,8,22,.75);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font: 700 22px 'Space Grotesk', sans-serif;
+  letter-spacing: -1px;
+}
+
+.logo span {
+  color: var(--cyan);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-links a {
+  color: #aab5ce;
+  font-size: 13px;
+  transition: .3s;
+}
+
+.nav-links a:hover {
+  color: var(--cyan);
+}
+
+.nav-btn {
+  padding: 11px 19px;
+  border: 1px solid #3984ff80;
+  border-radius: 8px;
+  color: white !important;
+  background: #3984ff12;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 125px 0 75px;
+  position: relative;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  align-items: center;
+  gap: 55px;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #a7c7ff;
+  border: 1px solid #3984ff45;
+  background: #3984ff0d;
+  border-radius: 30px;
+  padding: 10px 15px;
+  font-size: 12px;
+  margin-bottom: 27px;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  background: #38f5b0;
+  border-radius: 50%;
+  box-shadow: 0 0 12px #38f5b0;
+}
+
+.hero h1 {
+  font: 700 clamp(42px, 6vw, 76px)/1.08 'Space Grotesk', sans-serif;
+  letter-spacing: -3px;
+}
+
+.gradient-text {
+  background: linear-gradient(100deg, #fff 5%, #65a5ff 45%, #00e5ff 95%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  color: var(--muted);
+  line-height: 1.9;
+  font-size: 15px;
+  max-width: 530px;
+  margin: 25px 0 32px;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.btn {
+  padding: 15px 23px;
+  border-radius: 9px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  transition: .3s;
+}
+
+.btn-primary {
+  background: linear-gradient(110deg, #347cff, #00bfe9);
+  color: white;
+  box-shadow: 0 8px 35px #087bff35;
+}
+
+.btn-primary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px #087bff65;
+}
+
+.btn-outline {
+  border: 1px solid var(--border);
+  background: #ffffff05;
+}
+
+.btn-outline:hover {
+  border-color: var(--cyan);
+  transform: translateY(-4px);
+}
+
+/* PROFILE VISUAL */
+
+.visual {
+  min-height: 420px;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.orbit {
+  width: 320px;
+  height: 320px;
+  border: 1px solid #3984ff35;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  position: relative;
+  box-shadow: 0 0 100px #087bff12, inset 0 0 70px #087bff0b;
+  animation: float 6s ease-in-out infinite;
+}
+
+.orbit::before,
+.orbit::after {
+  content: "";
+  position: absolute;
+  border: 1px solid #00e5ff20;
+  border-radius: 50%;
+}
+
+.orbit::before {
+  inset: 22px -25px;
+  transform: rotate(-35deg);
+}
+
+.orbit::after {
+  inset: -25px 22px;
+  transform: rotate(35deg);
+}
+
+.core {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 35% 25%, #2458a7, transparent 45%),
+    linear-gradient(145deg, #101c3a, #060a17);
+  border: 1px solid #3984ff60;
+  box-shadow: 0 0 70px #167bff25;
+}
+
+.core span {
+  font: 800 74px 'Space Grotesk', sans-serif;
+  letter-spacing: -7px;
+  background: linear-gradient(135deg, #fff, #3984ff 65%, #00e5ff);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.float {
+  position: absolute;
+  padding: 12px 16px;
+  background: #0b1429dd;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  backdrop-filter: blur(15px);
+  font-size: 12px;
+  color: #c9d8f7;
+  box-shadow: 0 10px 40px #0004;
+}
+
+.float-one { top: 40px; right: 0; }
+.float-two { bottom: 55px; left: 0; }
+.float-three { bottom: 5px; right: 20px; }
+
+@keyframes float {
+  0%,100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-12px) rotate(2deg); }
+}
+
+/* SECTIONS */
+
+section:not(.hero) {
+  padding: 100px 0;
+  scroll-margin-top: 70px;
+}
+
+.section-label {
+  color: var(--cyan);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.section-title {
+  font: 700 clamp(30px, 4vw, 45px) 'Space Grotesk', sans-serif;
+  letter-spacing: -1.5px;
+}
+
+.section-desc {
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 14px;
+  margin-top: 16px;
+  max-width: 600px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 55px;
+  align-items: start;
+}
+
+.info-card, .skill-card, .project-card {
+  background: linear-gradient(145deg, #10182eaa, #080d1b);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px;
+  transition: .35s;
+}
+
+.info-card:hover, .skill-card:hover, .project-card:hover {
+  transform: translateY(-6px);
+  border-color: #3984ff70;
+  box-shadow: 0 20px 60px #0003;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 17px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+
+.info-row:last-child { border: none; }
+.info-row span:first-child { color: var(--muted); }
+.info-row span:last-child { text-align: right; }
+
+/* SKILLS */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 40px;
+}
+
+.skill-icon {
+  font-size: 27px;
+  margin-bottom: 22px;
+}
+
+.skill-card h3, .project-card h3 {
+  font: 600 18px 'Space Grotesk', sans-serif;
+  margin-bottom: 12px;
+}
+
+.skill-card p, .project-card p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* PROJECTS */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 40px;
+}
+
+.project-top {
+  height: 145px;
+  border-radius: 10px;
+  margin-bottom: 24px;
+  display: grid;
+  place-items: center;
+  font-size: 43px;
+  background:
+    radial-gradient(circle at 50% 50%, #2369d844, transparent 65%),
+    #0b1429;
+  border: 1px solid #3984ff20;
+}
+
+.project-tag {
+  display: inline-block;
+  font-size: 10px;
+  color: var(--cyan);
+  background: #00e5ff0b;
+  border: 1px solid #00e5ff25;
+  border-radius: 20px;
+  padding: 6px 10px;
+  margin-top: 18px;
+}
+
+/* CONTACT */
+
+.contact-box {
+  text-align: center;
+  padding: 65px 25px;
+  border-radius: 22px;
+  border: 1px solid #3984ff35;
+  background:
+    radial-gradient(ellipse at 50% 0%, #1558b52b, transparent 65%),
+    #0a1020;
+}
+
+.contact-box .section-desc {
+  margin: 18px auto 28px;
+}
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 28px 0;
+  color: #6f7b96;
+  font-size: 12px;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* SCROLL ANIMATION */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.menu-toggle {
+  display: none;
+  border: 1px solid var(--border);
+  background: #10182e;
+  color: white;
+  padding: 9px 12px;
+  border-radius: 8px;
+  font-size: 20px;
+}
+
+@media (max-width: 800px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 76px;
+    left: 0;
+    width: 100%;
+    padding: 25px 5%;
+    background: #080d1bf5;
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 23px;
+  }
+
+  .nav-links.open { display: flex; }
+  .menu-toggle { display: block; }
+
+  .hero { padding-top: 125px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 20px; }
+  .hero h1 { letter-spacing: -2px; }
+  .visual { min-height: 370px; }
+  .orbit { transform: scale(.85); }
+  .about-grid { grid-template-columns: 1fr; gap: 30px; }
+  .skills-grid, .projects-grid { grid-template-columns: 1fr; }
+  section:not(.hero) { padding: 75px 0; }
+  .footer-inner { flex-direction: column; text-align: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
+</style>
+</head>
+
+<body>
+<canvas id="particles"></canvas>
+
+<nav>
+  <div class="container nav-inner">
+    <a href="#home" class="logo">ARDIAN<span>.</span></a>
+
+    <button class="menu-toggle" id="menuToggle"
+      aria-label="Buka menu" aria-expanded="false">☰</button>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#about">Tentang</a>
+      <a href="#skills">Keahlian</a>
+      <a href="#projects">Proyek</a>
+      <a href="#contact" class="nav-btn">Hubungi Saya ↗</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div class="reveal">
+        <div class="status">
+          <span class="status-dot"></span>
+          STUDENT • CREATOR • FUTURE DEVELOPER
+        </div>
+
+        <h1>
+          Membangun<br>
+          <span class="gradient-text">Masa Depan.</span>
+        </h1>
+
+        <p>
+          Halo, saya <strong>Ardian Yusuf Firdaus</strong>.
+          Seorang pelajar yang memiliki ketertarikan pada teknologi,
+          desain digital, dan pengembangan website.
+          Selalu belajar, berkreasi, dan menciptakan sesuatu yang baru.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">
+            Jelajahi Proyek <span>↗</span>
+          </a>
+          <a href="#about" class="btn btn-outline">
+            Kenali Saya ↓
+          </a>
+        </div>
+      </div>
+
+      <div class="visual reveal">
+        <div class="orbit">
+          <div class="core"><span>AYF</span></div>
+        </div>
+        <div class="float float-one">✦ Creative Mind</div>
+        <div class="float float-two">⌘ Digital Creator</div>
+        <div class="float float-three">↗ Always Growing</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="reveal">
+          <div class="section-label">01 / Tentang Saya</div>
+          <h2 class="section-title">Di balik nama,<br>ada sebuah visi.</h2>
+          <p class="section-desc">
+            Saya percaya bahwa setiap ide memiliki potensi untuk
+            menjadi sesuatu yang luar biasa. Melalui teknologi dan
+            kreativitas, saya ingin terus mengembangkan kemampuan
+            dan menghasilkan karya yang bermanfaat.
+          </p>
+        </div>
+
+        <div class="info-card reveal">
+          <div class="info-row">
+            <span>Nama</span>
+            <span>Ardian Yusuf Firdaus</span>
+          </div>
+          <div class="info-row">
+            <span>Status</span>
+            <span>Pelajar SMA</span>
+          </div>
+          <div class="info-row">
+            <span>Sekolah</span>
+            <span>SMA Negeri 1 Purbalingga</span>
+          </div>
+          <div class="info-row">
+            <span>Minat</span>
+            <span>Teknologi & Desain</span>
+          </div>
+          <div class="info-row">
+            <span>Motto</span>
+            <span>Learn. Build. Evolve.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">02 / Keahlian</div>
+        <h2 class="section-title">Things I Love to Build.</h2>
+        <p class="section-desc">
+          Bidang yang sedang saya pelajari dan kembangkan.
+        </p>
+      </div>
+
+      <div class="skills-grid">
+        <article class="skill-card reveal">
+          <div class="skill-icon">⌘</div>
+          <h3>Web Development</h3>
+          <p>Membangun website modern dengan HTML, CSS, JavaScript, dan desain responsif.</p>
+        </article>
+
+        <article class="skill-card reveal">
+          <div class="skill-icon">◈</div>
+          <h3>UI / UX Design</h3>
+          <p>Menggabungkan estetika, kenyamanan, dan pengalaman pengguna dalam desain.</p>
+        </article>
+
+        <article class="skill-card reveal">
+          <div class="skill-icon">✧</div>
+          <h3>Creative Technology</h3>
+          <p>Mengeksplorasi ide kreatif dan teknologi untuk menghasilkan karya digital.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">03 / Portfolio</div>
+        <h2 class="section-title">Selected Projects.</h2>
+        <p class="section-desc">
+          Beberapa konsep karya digital yang ingin saya kembangkan.
+        </p>
+      </div>
+
+      <div class="projects-grid">
+        <article class="project-card reveal">
+          <div class="project-top">🌐</div>
+          <h3>Personal Website</h3>
+          <p>Website personal untuk memperkenalkan profil, perjalanan, dan karya saya.</p>
+          <span class="project-tag">WEB DESIGN</span>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-top">🚀</div>
+          <h3>Future Interface</h3>
+          <p>Eksplorasi tampilan antarmuka futuristik dengan animasi dan efek visual.</p>
+          <span class="project-tag">UI / UX</span>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-top">💡</div>
+          <h3>Creative Experiments</h3>
+          <p>Tempat mengembangkan ide, mencoba teknologi, dan belajar hal baru.</p>
+          <span class="project-tag">EXPERIMENTAL</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="contact-box reveal">
+        <div class="section-label">04 / Get In Touch</div>
+        <h2 class="section-title">Punya ide menarik?</h2>
+        <p class="section-desc">
+          Mari terhubung dan berbagi inspirasi untuk menciptakan
+          sesuatu yang luar biasa.
+        </p>
+        <a href="mailto:emailkamu@example.com" class="btn btn-primary">
+          Kirim Email ↗
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <span>© <span id="year"></span> Ardian Yusuf Firdaus.</span>
+    <span>Designed with passion. Built for the future. ✦</span>
+  </div>
+</footer>
+
+<script>
+// Tahun otomatis
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+// Menu mobile
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", () => {
+  const isOpen = navLinks.classList.toggle("open");
+  menuToggle.setAttribute("aria-expanded", isOpen);
+  menuToggle.textContent = isOpen ? "✕" : "☰";
+});
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.textContent = "☰";
+  });
+});
+
+// Animasi saat elemen muncul
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll(".reveal").forEach(el => {
+  observer.observe(el);
+});
+
+// Background partikel interaktif
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+let particles = [];
+let width, height;
+let animationFrame;
+
+function resize() {
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  width = window.innerWidth;
+  height = window.innerHeight;
+
+  canvas.width = width * dpr;
+  canvas.height = height * dpr;
+  canvas.style.width = width + "px";
+  canvas.style.height = height + "px";
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+  const count = Math.min(65, Math.floor(width / 15));
+  particles = Array.from({ length: count }, () => ({
+    x: Math.random() * width,
+    y: Math.random() * height,
+    r: Math.random() * 1.5 + .4,
+    vx: (Math.random() - .5) * .25,
+    vy: (Math.random() - .5) * .25
+  }));
+}
+
+function draw() {
+  ctx.clearRect(0, 0, width, height);
+
+  particles.forEach((p, i) => {
+    p.x += p.vx;
+    p.y += p.vy;
+
+    if (p.x < 0 || p.x > width) p.vx *= -1;
+    if (p.y < 0 || p.y > height) p.vy *= -1;
+
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fillStyle = "rgba(90,160,255,.65)";
+    ctx.fill();
+
+    for (let j = i + 1; j < particles.length; j++) {
+      const q = particles[j];
+      const dx = p.x - q.x;
+      const dy = p.y - q.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+
+      if (dist < 105) {
+        ctx.beginPath();
+        ctx.moveTo(p.x, p.y);
+        ctx.lineTo(q.x, q.y);
+        ctx.strokeStyle =
+          `rgba(60,130,255,${.12 * (1 - dist / 105)})`;
+        ctx.stroke();
+      }
+    }
+  });
+
+  animationFrame = requestAnimationFrame(draw);
+}
+
+const reduceMotion = window.matchMedia(
+  "(prefers-reduced-motion: reduce)"
+);
+
+function startParticles() {
+  cancelAnimationFrame(animationFrame);
+  if (reduceMotion.matches) {
+    ctx.clearRect(0, 0, width, height);
+    return;
+  }
+  draw();
+}
+
+window.addEventListener("resize", () => {
+  resize();
+  startParticles();
+});
+
+reduceMotion.addEventListener?.("change", startParticles);
+
+resize();
+startParticles();
+</script>
+</body>
+</html>
