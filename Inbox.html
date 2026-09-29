@@ -1,223 +1,833 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0a0a0a">
-  <meta name="description" content="Portfolio Ardian Yusuf Firdaus">
-  <title>Ardian Yusuf Firdaus — Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#07070b; --panel:#0e0d16; --text:#f7f7fb; --muted:#a5a4b5;
-      --line:rgba(255,255,255,.11); --accent:#8b5cf6; --accent2:#38bdf8;
-      --max:1160px;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;background:
-      radial-gradient(circle at 10% 8%,rgba(139,92,246,.13),transparent 25%),
-      radial-gradient(circle at 90% 18%,rgba(56,189,248,.10),transparent 24%),
-      #07070b;color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.6}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.14;background-image:linear-gradient(rgba(151,166,210,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(151,166,210,.05) 1px,transparent 1px);background-size:56px 56px;mask-image:linear-gradient(to bottom,black,transparent 85%);z-index:-1}
-    a{color:inherit;text-decoration:none}
-    .wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
-    nav{position:fixed;top:0;left:0;right:0;z-index:20;background:rgba(7,7,11,.72);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.08)}
-    nav .inner{height:72px;display:flex;align-items:center;justify-content:space-between}
-    .logo{font-weight:700;letter-spacing:-.03em}
-    .logo span{color:var(--accent)}
-    .links{display:flex;gap:26px;font-size:13px;color:#a8b0c7}
-    .links a:hover{color:white}
-    .menu{display:none;background:none;border:0;color:white;font-size:22px}
-    section{padding:110px 0}
-    .hero{min-height:100vh;display:grid;align-items:center;position:relative;overflow:hidden;padding-top:130px}
-    .hero-bg{position:absolute;inset:0;opacity:.30;pointer-events:none}
-    .hero-bg img{width:100%;height:100%;object-fit:cover;filter:blur(30px) saturate(1.15);transform:scale(1.08)}
-    .hero-bg:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#07070b 0%,rgba(7,7,11,.90) 42%,rgba(30,17,54,.64) 100%)}
-    .hero-grid{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center}
-    .eyebrow{font:500 12px/1.2 "DM Mono",monospace;text-transform:uppercase;letter-spacing:.14em;color:var(--accent);margin-bottom:22px}
-    h1{font-size:clamp(54px,8vw,104px);line-height:.9;letter-spacing:-.075em;margin:0 0 28px;max-width:900px}
-    h1 em{font-style:normal;color:#7883a0}
-    .lead{max-width:630px;color:#c0c8dc;font-size:18px}
-    .actions{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
-    .btn{padding:13px 18px;border:1px solid rgba(151,166,210,.22);border-radius:999px;font-size:13px;font-weight:600;transition:.2s}
-    .btn.primary{background:linear-gradient(135deg,#8b5cf6,#38bdf8);color:#061018;border-color:transparent;box-shadow:0 12px 38px rgba(139,92,246,.25)}
-    .btn:hover{transform:translateY(-2px)}
-    .portrait{justify-self:end;width:min(390px,100%);aspect-ratio:4/5;border:1px solid rgba(151,166,210,.22);border-radius:28px;overflow:hidden;background:#11172c;box-shadow:0 30px 100px rgba(0,0,0,.55), 0 0 80px rgba(114,231,255,.07)}
-    .portrait img{width:100%;height:100%;object-fit:cover;filter:blur(5px);transform:scale(1.03)}
-    .tag{display:inline-flex;align-items:center;gap:8px;margin-top:24px;color:#a9a9a3;font:12px "DM Mono",monospace}
-    .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 18px var(--accent)}
-    .section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:42px;border-bottom:1px solid var(--line);padding-bottom:18px}
-    .kicker{font:12px "DM Mono",monospace;color:var(--accent)}
-    h2{font-size:clamp(34px,5vw,58px);line-height:1;letter-spacing:-.06em;margin:8px 0 0}
-    .muted{color:var(--muted)}
-    .about{display:grid;grid-template-columns:1fr 1fr;gap:70px}
-    .about p{font-size:18px;color:#c8cee0;margin-top:0}
-    .facts{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
-    .fact{background:rgba(7,11,24,.82);padding:24px}
-    .fact strong{display:block;font-size:30px;letter-spacing:-.05em}
-    .fact span{font-size:12px;color:#8e8e88}
-    .skills{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .card{border:1px solid var(--line);background:linear-gradient(145deg,rgba(22,16,36,.90),rgba(11,10,18,.96));padding:26px;border-radius:18px;min-height:190px}
-    .card h3{margin:0 0 12px;font-size:17px}
-    .card p{color:#9fa8c0;font-size:14px}
-    .chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:20px}
-    .chip{border:1px solid rgba(151,166,210,.20);padding:7px 10px;border-radius:999px;color:#a8b0c7;font:11px "DM Mono",monospace}
-    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-    .project{border:1px solid var(--line);border-radius:20px;padding:28px;min-height:260px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(145deg,rgba(25,18,42,.82),rgba(10,9,16,.96))}
-    .project .num{font:11px "DM Mono",monospace;color:#68738f}
-    .project h3{font-size:28px;letter-spacing:-.04em;margin:30px 0 8px}
-    .project p{color:#9fa8c0;margin:0;max-width:480px}
-    .project .bottom{display:flex;justify-content:space-between;align-items:center;margin-top:28px}
-    .arrow{font-size:22px;color:var(--accent)}
-    .contact{border:1px solid var(--line);border-radius:24px;padding:50px;background:radial-gradient(circle at 85% 15%,rgba(56,189,248,.12),transparent 28%),radial-gradient(circle at 15% 85%,rgba(139,92,246,.16),transparent 30%),linear-gradient(145deg,#151022,#09090f)}
-    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px}
-    .email{font-size:clamp(22px,4vw,40px);letter-spacing:-.05em;word-break:break-word}
-    .contact small{color:#818ca7}
-    footer{padding:35px 0 55px;border-top:1px solid var(--line);color:#68738f;font-size:12px;display:flex;justify-content:space-between}
-    .reveal{opacity:0;transform:translateY(18px);transition:.7s ease}
-    .reveal.show{opacity:1;transform:none}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050816">
+<meta name="description" content="Website personal Ardian Yusuf Firdaus — Student, Creator & Future Developer.">
 
-    .design-showcase{display:grid;grid-template-columns:.82fr 1.18fr;gap:28px;align-items:stretch}
-    .design-copy{border:1px solid var(--line);border-radius:24px;padding:38px;background:
-      radial-gradient(circle at 0 0,rgba(139,92,246,.17),transparent 38%),
-      linear-gradient(145deg,#14101e,#0b0a10);display:flex;flex-direction:column;justify-content:center}
-    .design-label{font:11px "DM Mono",monospace;letter-spacing:.13em;color:#9aa0b5}
-    .design-copy h3{font-size:clamp(42px,5vw,72px);line-height:.92;letter-spacing:-.065em;margin:20px 0}
-    .design-copy h3 span{background:linear-gradient(90deg,#a78bfa,#38bdf8);-webkit-background-clip:text;background-clip:text;color:transparent}
-    .design-copy p{color:#aaa9b7;max-width:470px}
-    .design-frame{position:relative;border:1px solid rgba(139,92,246,.30);border-radius:24px;padding:10px;background:#0b0a10;overflow:hidden;box-shadow:0 25px 90px rgba(0,0,0,.45)}
-    .design-frame:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(139,92,246,.16),transparent 38%,rgba(56,189,248,.10));pointer-events:none;z-index:1}
-    .design-frame img{display:block;width:100%;height:100%;max-height:640px;object-fit:cover;border-radius:17px}
-    .frame-glow{position:absolute;width:220px;height:220px;border-radius:50%;right:-80px;top:-80px;background:#8b5cf6;filter:blur(90px);opacity:.18;z-index:0}
+<title>Ardian Yusuf Firdaus | Official Website</title>
 
-    @media(max-width:800px){
-      .links{display:none}.menu{display:block}
-      .hero-grid,.about,.contact-grid,.design-showcase{grid-template-columns:1fr}
-      .portrait{justify-self:start;width:min(330px,100%)}
-      .skills{grid-template-columns:1fr}.projects{grid-template-columns:1fr}
-      section{padding:80px 0}
-      h1{font-size:clamp(50px,15vw,80px)}
-      .hero{padding-top:115px}
-    }
-  </style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #050816;
+  --panel: #0b1125;
+  --blue: #3984ff;
+  --cyan: #00e5ff;
+  --text: #f3f7ff;
+  --muted: #8995b2;
+  --border: rgba(130,160,255,.15);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 15% 20%, #123a793b, transparent 40%),
+    radial-gradient(ellipse at 85% 55%, #004f7440, transparent 40%),
+    #050816;
+}
+
+#particles {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(1120px, 90%);
+  margin: auto;
+}
+
+/* NAVBAR */
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background: rgba(5,8,22,.75);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font: 700 22px 'Space Grotesk', sans-serif;
+  letter-spacing: -1px;
+}
+
+.logo span {
+  color: var(--cyan);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-links a {
+  color: #aab5ce;
+  font-size: 13px;
+  transition: .3s;
+}
+
+.nav-links a:hover {
+  color: var(--cyan);
+}
+
+.nav-btn {
+  padding: 11px 19px;
+  border: 1px solid #3984ff80;
+  border-radius: 8px;
+  color: white !important;
+  background: #3984ff12;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 125px 0 75px;
+  position: relative;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  align-items: center;
+  gap: 55px;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #a7c7ff;
+  border: 1px solid #3984ff45;
+  background: #3984ff0d;
+  border-radius: 30px;
+  padding: 10px 15px;
+  font-size: 12px;
+  margin-bottom: 27px;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  background: #38f5b0;
+  border-radius: 50%;
+  box-shadow: 0 0 12px #38f5b0;
+}
+
+.hero h1 {
+  font: 700 clamp(42px, 6vw, 76px)/1.08 'Space Grotesk', sans-serif;
+  letter-spacing: -3px;
+}
+
+.gradient-text {
+  background: linear-gradient(100deg, #fff 5%, #65a5ff 45%, #00e5ff 95%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  color: var(--muted);
+  line-height: 1.9;
+  font-size: 15px;
+  max-width: 530px;
+  margin: 25px 0 32px;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.btn {
+  padding: 15px 23px;
+  border-radius: 9px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  transition: .3s;
+}
+
+.btn-primary {
+  background: linear-gradient(110deg, #347cff, #00bfe9);
+  color: white;
+  box-shadow: 0 8px 35px #087bff35;
+}
+
+.btn-primary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px #087bff65;
+}
+
+.btn-outline {
+  border: 1px solid var(--border);
+  background: #ffffff05;
+}
+
+.btn-outline:hover {
+  border-color: var(--cyan);
+  transform: translateY(-4px);
+}
+
+/* PROFILE VISUAL */
+
+.visual {
+  min-height: 420px;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.orbit {
+  width: 320px;
+  height: 320px;
+  border: 1px solid #3984ff35;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  position: relative;
+  box-shadow: 0 0 100px #087bff12, inset 0 0 70px #087bff0b;
+  animation: float 6s ease-in-out infinite;
+}
+
+.orbit::before,
+.orbit::after {
+  content: "";
+  position: absolute;
+  border: 1px solid #00e5ff20;
+  border-radius: 50%;
+}
+
+.orbit::before {
+  inset: 22px -25px;
+  transform: rotate(-35deg);
+}
+
+.orbit::after {
+  inset: -25px 22px;
+  transform: rotate(35deg);
+}
+
+.core {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 35% 25%, #2458a7, transparent 45%),
+    linear-gradient(145deg, #101c3a, #060a17);
+  border: 1px solid #3984ff60;
+  box-shadow: 0 0 70px #167bff25;
+}
+
+.core span {
+  font: 800 74px 'Space Grotesk', sans-serif;
+  letter-spacing: -7px;
+  background: linear-gradient(135deg, #fff, #3984ff 65%, #00e5ff);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.float {
+  position: absolute;
+  padding: 12px 16px;
+  background: #0b1429dd;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  backdrop-filter: blur(15px);
+  font-size: 12px;
+  color: #c9d8f7;
+  box-shadow: 0 10px 40px #0004;
+}
+
+.float-one { top: 40px; right: 0; }
+.float-two { bottom: 55px; left: 0; }
+.float-three { bottom: 5px; right: 20px; }
+
+@keyframes float {
+  0%,100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-12px) rotate(2deg); }
+}
+
+/* SECTIONS */
+
+section:not(.hero) {
+  padding: 100px 0;
+  scroll-margin-top: 70px;
+}
+
+.section-label {
+  color: var(--cyan);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.section-title {
+  font: 700 clamp(30px, 4vw, 45px) 'Space Grotesk', sans-serif;
+  letter-spacing: -1.5px;
+}
+
+.section-desc {
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 14px;
+  margin-top: 16px;
+  max-width: 600px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 55px;
+  align-items: start;
+}
+
+.info-card, .skill-card, .project-card {
+  background: linear-gradient(145deg, #10182eaa, #080d1b);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px;
+  transition: .35s;
+}
+
+.info-card:hover, .skill-card:hover, .project-card:hover {
+  transform: translateY(-6px);
+  border-color: #3984ff70;
+  box-shadow: 0 20px 60px #0003;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 17px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+
+.info-row:last-child { border: none; }
+.info-row span:first-child { color: var(--muted); }
+.info-row span:last-child { text-align: right; }
+
+/* SKILLS */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 40px;
+}
+
+.skill-icon {
+  font-size: 27px;
+  margin-bottom: 22px;
+}
+
+.skill-card h3, .project-card h3 {
+  font: 600 18px 'Space Grotesk', sans-serif;
+  margin-bottom: 12px;
+}
+
+.skill-card p, .project-card p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* PROJECTS */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 40px;
+}
+
+.project-top {
+  height: 145px;
+  border-radius: 10px;
+  margin-bottom: 24px;
+  display: grid;
+  place-items: center;
+  font-size: 43px;
+  background:
+    radial-gradient(circle at 50% 50%, #2369d844, transparent 65%),
+    #0b1429;
+  border: 1px solid #3984ff20;
+}
+
+.project-tag {
+  display: inline-block;
+  font-size: 10px;
+  color: var(--cyan);
+  background: #00e5ff0b;
+  border: 1px solid #00e5ff25;
+  border-radius: 20px;
+  padding: 6px 10px;
+  margin-top: 18px;
+}
+
+/* CONTACT */
+
+.contact-box {
+  text-align: center;
+  padding: 65px 25px;
+  border-radius: 22px;
+  border: 1px solid #3984ff35;
+  background:
+    radial-gradient(ellipse at 50% 0%, #1558b52b, transparent 65%),
+    #0a1020;
+}
+
+.contact-box .section-desc {
+  margin: 18px auto 28px;
+}
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 28px 0;
+  color: #6f7b96;
+  font-size: 12px;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* SCROLL ANIMATION */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.menu-toggle {
+  display: none;
+  border: 1px solid var(--border);
+  background: #10182e;
+  color: white;
+  padding: 9px 12px;
+  border-radius: 8px;
+  font-size: 20px;
+}
+
+@media (max-width: 800px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 76px;
+    left: 0;
+    width: 100%;
+    padding: 25px 5%;
+    background: #080d1bf5;
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 23px;
+  }
+
+  .nav-links.open { display: flex; }
+  .menu-toggle { display: block; }
+
+  .hero { padding-top: 125px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 20px; }
+  .hero h1 { letter-spacing: -2px; }
+  .visual { min-height: 370px; }
+  .orbit { transform: scale(.85); }
+  .about-grid { grid-template-columns: 1fr; gap: 30px; }
+  .skills-grid, .projects-grid { grid-template-columns: 1fr; }
+  section:not(.hero) { padding: 75px 0; }
+  .footer-inner { flex-direction: column; text-align: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
+</style>
 </head>
+
 <body>
-  <nav>
-    <div class="wrap inner">
-      <a class="logo" href="#home">AYF<span>.</span></a>
-      <div class="links">
-        <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#design">Design</a><a href="#contact">Contact</a>
-      </div>
-      <button class="menu" onclick="document.querySelector('.links').style.display='flex'">☰</button>
+<canvas id="particles"></canvas>
+
+<nav>
+  <div class="container nav-inner">
+    <a href="#home" class="logo">ARDIAN<span>.</span></a>
+
+    <button class="menu-toggle" id="menuToggle"
+      aria-label="Buka menu" aria-expanded="false">☰</button>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#about">Tentang</a>
+      <a href="#skills">Keahlian</a>
+      <a href="#projects">Proyek</a>
+      <a href="#contact" class="nav-btn">Hubungi Saya ↗</a>
     </div>
-  </nav>
+  </div>
+</nav>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="hero-bg"><img src="profile-blur.jpg" alt=""></div>
-      <div class="wrap hero-grid">
+<main>
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div class="reveal">
+        <div class="status">
+          <span class="status-dot"></span>
+          STUDENT • CREATOR • FUTURE DEVELOPER
+        </div>
+
+        <h1>
+          Membangun<br>
+          <span class="gradient-text">Masa Depan.</span>
+        </h1>
+
+        <p>
+          Halo, saya <strong>Ardian Yusuf Firdaus</strong>.
+          Seorang pelajar yang memiliki ketertarikan pada teknologi,
+          desain digital, dan pengembangan website.
+          Selalu belajar, berkreasi, dan menciptakan sesuatu yang baru.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">
+            Jelajahi Proyek <span>↗</span>
+          </a>
+          <a href="#about" class="btn btn-outline">
+            Kenali Saya ↓
+          </a>
+        </div>
+      </div>
+
+      <div class="visual reveal">
+        <div class="orbit">
+          <div class="core"><span>AYF</span></div>
+        </div>
+        <div class="float float-one">✦ Creative Mind</div>
+        <div class="float float-two">⌘ Digital Creator</div>
+        <div class="float float-three">↗ Always Growing</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
         <div class="reveal">
-          <div class="eyebrow">Portfolio / 2026</div>
-          <h1>Ardian<br><em>Yusuf</em><br>Firdaus.</h1>
-          <p class="lead">Personal portfolio dengan gaya minimal, modern, dan fokus pada karya. Tempat untuk mengenal saya, melihat kemampuan, dan menjelajahi project yang pernah saya kerjakan.</p>
-          <div class="actions">
-            <a class="btn primary" href="#projects">Lihat Project ↗</a>
-            <a class="btn" href="#contact">Hubungi Saya</a>
-          </div>
-          <div class="tag"><span class="dot"></span> Open to opportunities</div>
+          <div class="section-label">01 / Tentang Saya</div>
+          <h2 class="section-title">Di balik nama,<br>ada sebuah visi.</h2>
+          <p class="section-desc">
+            Saya percaya bahwa setiap ide memiliki potensi untuk
+            menjadi sesuatu yang luar biasa. Melalui teknologi dan
+            kreativitas, saya ingin terus mengembangkan kemampuan
+            dan menghasilkan karya yang bermanfaat.
+          </p>
         </div>
-        <div class="portrait reveal">
-          <img src="profile-blur.jpg" alt="Foto profil Ardian Yusuf Firdaus">
-        </div>
-      </div>
-    </section>
 
-    <section id="about">
-      <div class="wrap">
-        <div class="section-head reveal"><div><div class="kicker">01 / ABOUT</div><h2>Tentang saya</h2></div><span class="muted">Sedikit konteks.</span></div>
-        <div class="about">
-          <div class="reveal">
-            <p>Saya <strong>Ardian Yusuf Firdaus</strong>. Website ini dirancang sebagai ruang personal untuk menampilkan profil, kemampuan, pengalaman, dan karya saya secara sederhana.</p>
-            <p>Saya percaya tampilan yang baik tidak harus ramai: informasi yang jelas, tipografi yang kuat, dan detail kecil yang terasa.</p>
+        <div class="info-card reveal">
+          <div class="info-row">
+            <span>Nama</span>
+            <span>Ardian Yusuf Firdaus</span>
           </div>
-          <div class="facts reveal">
-            <div class="fact"><strong>01</strong><span>Personal Portfolio</span></div>
-            <div class="fact"><strong>∞</strong><span>Ruang untuk berkembang</span></div>
-            <div class="fact"><strong>Web</strong><span>Focus area</span></div>
-            <div class="fact"><strong>ID</strong><span>Indonesia</span></div>
+          <div class="info-row">
+            <span>Status</span>
+            <span>Pelajar SMA</span>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills">
-      <div class="wrap">
-        <div class="section-head reveal"><div><div class="kicker">02 / SKILLS</div><h2>Yang saya bisa</h2></div><span class="muted">Teknologi & kreativitas.</span></div>
-        <div class="skills">
-          <article class="card reveal"><h3>Frontend</h3><p>Membangun interface yang responsif, rapi, dan nyaman digunakan.</p><div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">React</span></div></article>
-          <article class="card reveal"><h3>Design</h3><p>Memperhatikan layout, hierarchy, typography, dan pengalaman pengguna.</p><div class="chips"><span class="chip">UI/UX</span><span class="chip">Figma</span><span class="chip">Prototyping</span></div></article>
-          <article class="card reveal"><h3>Tools</h3><p>Workflow pengembangan yang sederhana dan mudah dirawat.</p><div class="chips"><span class="chip">Git</span><span class="chip">VS Code</span><span class="chip">GitHub</span></div></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects">
-      <div class="wrap">
-        <div class="section-head reveal"><div><div class="kicker">03 / PROJECTS</div><h2>Beberapa karya</h2></div><span class="muted">Selected work.</span></div>
-        <div class="projects">
-          <article class="project reveal"><div><span class="num">PROJECT / 01</span><h3>Personal Portfolio</h3><p>Website personal yang menampilkan profil, skill, dan project dalam satu pengalaman yang clean.</p></div><div class="bottom"><span class="chip">WEB</span><span class="arrow">↗</span></div></article>
-          <article class="project reveal"><div><span class="num">PROJECT / 02</span><h3>Landing Page</h3><p>Konsep landing page modern dengan fokus pada visual, CTA, dan responsive layout.</p></div><div class="bottom"><span class="chip">UI / UX</span><span class="arrow">↗</span></div></article>
-          <article class="project reveal"><div><span class="num">PROJECT / 03</span><h3>Mini App</h3><p>Eksperimen aplikasi kecil untuk latihan logika, interaksi, dan pengalaman pengguna.</p></div><div class="bottom"><span class="chip">JAVASCRIPT</span><span class="arrow">↗</span></div></article>
-          <article class="project reveal"><div><span class="num">PROJECT / 04</span><h3>Creative Experiment</h3><p>Eksplorasi visual dan motion sederhana untuk membuat halaman terasa lebih hidup.</p></div><div class="bottom"><span class="chip">EXPERIMENT</span><span class="arrow">↗</span></div></article>
-        </div>
-      </div>
-    </section>
-
-    
-    <section id="design">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <div><div class="kicker">04 / DESIGN</div><h2>Visual identity</h2></div>
-          <span class="muted">Desain pilihan saya.</span>
-        </div>
-        <div class="design-showcase reveal">
-          <div class="design-copy">
-            <span class="design-label">ARDIAN / CREATIVE DIRECTION</span>
-            <h3>Bold. Modern.<br><span>Personal.</span></h3>
-            <p>Desain yang Anda kirim saya jadikan bagian dari identitas visual portfolio: dominan ungu, biru elektrik, typography besar, dan elemen garis yang dinamis—tetapi diterapkan dengan layout yang lebih rapi agar tetap profesional.</p>
-            <div class="chips">
-              <span class="chip">PURPLE</span><span class="chip">ELECTRIC BLUE</span>
-              <span class="chip">TYPOGRAPHY</span><span class="chip">GRAPHIC DESIGN</span>
-            </div>
+          <div class="info-row">
+            <span>Sekolah</span>
+            <span>SMA Negeri 1 Purbalingga</span>
           </div>
-          <div class="design-frame">
-            <div class="frame-glow"></div>
-            <img src="ardian-design.jpg" alt="Desain visual Ardian Yusuf Firdaus">
+          <div class="info-row">
+            <span>Minat</span>
+            <span>Teknologi & Desain</span>
+          </div>
+          <div class="info-row">
+            <span>Motto</span>
+            <span>Learn. Build. Evolve.</span>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-<section id="contact">
-      <div class="wrap">
-        <div class="contact reveal">
-          <div class="contact-grid">
-            <div><div class="kicker">05 / CONTACT</div><h2>Mari ngobrol.</h2><p class="muted">Punya ide, project, atau sekadar ingin terhubung? Kirim pesan melalui email.</p></div>
-            <div><small>Email</small><div class="email"><a href="mailto:ardianyusuf@example.com">ardianyusuf@example.com</a></div><div class="tag"><span class="dot"></span> Available for collaboration</div></div>
-          </div>
-        </div>
+  <section id="skills">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">02 / Keahlian</div>
+        <h2 class="section-title">Things I Love to Build.</h2>
+        <p class="section-desc">
+          Bidang yang sedang saya pelajari dan kembangkan.
+        </p>
       </div>
-    </section>
-  </main>
 
-  <footer class="wrap"><span>© 2026 Ardian Yusuf Firdaus</span><span>Built with intention.</span></footer>
+      <div class="skills-grid">
+        <article class="skill-card reveal">
+          <div class="skill-icon">⌘</div>
+          <h3>Web Development</h3>
+          <p>Membangun website modern dengan HTML, CSS, JavaScript, dan desain responsif.</p>
+        </article>
 
-  <script>
-    const observer = new IntersectionObserver(entries => entries.forEach(e => e.isIntersecting && e.target.classList.add('show')), {threshold:.12});
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  </script>
+        <article class="skill-card reveal">
+          <div class="skill-icon">◈</div>
+          <h3>UI / UX Design</h3>
+          <p>Menggabungkan estetika, kenyamanan, dan pengalaman pengguna dalam desain.</p>
+        </article>
+
+        <article class="skill-card reveal">
+          <div class="skill-icon">✧</div>
+          <h3>Creative Technology</h3>
+          <p>Mengeksplorasi ide kreatif dan teknologi untuk menghasilkan karya digital.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">03 / Portfolio</div>
+        <h2 class="section-title">Selected Projects.</h2>
+        <p class="section-desc">
+          Beberapa konsep karya digital yang ingin saya kembangkan.
+        </p>
+      </div>
+
+      <div class="projects-grid">
+        <article class="project-card reveal">
+          <div class="project-top">🌐</div>
+          <h3>Personal Website</h3>
+          <p>Website personal untuk memperkenalkan profil, perjalanan, dan karya saya.</p>
+          <span class="project-tag">WEB DESIGN</span>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-top">🚀</div>
+          <h3>Future Interface</h3>
+          <p>Eksplorasi tampilan antarmuka futuristik dengan animasi dan efek visual.</p>
+          <span class="project-tag">UI / UX</span>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-top">💡</div>
+          <h3>Creative Experiments</h3>
+          <p>Tempat mengembangkan ide, mencoba teknologi, dan belajar hal baru.</p>
+          <span class="project-tag">EXPERIMENTAL</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="contact-box reveal">
+        <div class="section-label">04 / Get In Touch</div>
+        <h2 class="section-title">Punya ide menarik?</h2>
+        <p class="section-desc">
+          Mari terhubung dan berbagi inspirasi untuk menciptakan
+          sesuatu yang luar biasa.
+        </p>
+        <a href="mailto:emailkamu@example.com" class="btn btn-primary">
+          Kirim Email ↗
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <span>© <span id="year"></span> Ardian Yusuf Firdaus.</span>
+    <span>Designed with passion. Built for the future. ✦</span>
+  </div>
+</footer>
+
+<script>
+// Tahun otomatis
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+// Menu mobile
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", () => {
+  const isOpen = navLinks.classList.toggle("open");
+  menuToggle.setAttribute("aria-expanded", isOpen);
+  menuToggle.textContent = isOpen ? "✕" : "☰";
+});
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.textContent = "☰";
+  });
+});
+
+// Animasi saat elemen muncul
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll(".reveal").forEach(el => {
+  observer.observe(el);
+});
+
+// Background partikel interaktif
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+let particles = [];
+let width, height;
+let animationFrame;
+
+function resize() {
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  width = window.innerWidth;
+  height = window.innerHeight;
+
+  canvas.width = width * dpr;
+  canvas.height = height * dpr;
+  canvas.style.width = width + "px";
+  canvas.style.height = height + "px";
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+  const count = Math.min(65, Math.floor(width / 15));
+  particles = Array.from({ length: count }, () => ({
+    x: Math.random() * width,
+    y: Math.random() * height,
+    r: Math.random() * 1.5 + .4,
+    vx: (Math.random() - .5) * .25,
+    vy: (Math.random() - .5) * .25
+  }));
+}
+
+function draw() {
+  ctx.clearRect(0, 0, width, height);
+
+  particles.forEach((p, i) => {
+    p.x += p.vx;
+    p.y += p.vy;
+
+    if (p.x < 0 || p.x > width) p.vx *= -1;
+    if (p.y < 0 || p.y > height) p.vy *= -1;
+
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fillStyle = "rgba(90,160,255,.65)";
+    ctx.fill();
+
+    for (let j = i + 1; j < particles.length; j++) {
+      const q = particles[j];
+      const dx = p.x - q.x;
+      const dy = p.y - q.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+
+      if (dist < 105) {
+        ctx.beginPath();
+        ctx.moveTo(p.x, p.y);
+        ctx.lineTo(q.x, q.y);
+        ctx.strokeStyle =
+          `rgba(60,130,255,${.12 * (1 - dist / 105)})`;
+        ctx.stroke();
+      }
+    }
+  });
+
+  animationFrame = requestAnimationFrame(draw);
+}
+
+const reduceMotion = window.matchMedia(
+  "(prefers-reduced-motion: reduce)"
+);
+
+function startParticles() {
+  cancelAnimationFrame(animationFrame);
+  if (reduceMotion.matches) {
+    ctx.clearRect(0, 0, width, height);
+    return;
+  }
+  draw();
+}
+
+window.addEventListener("resize", () => {
+  resize();
+  startParticles();
+});
+
+reduceMotion.addEventListener?.("change", startParticles);
+
+resize();
+startParticles();
+</script>
 </body>
 </html>
+
